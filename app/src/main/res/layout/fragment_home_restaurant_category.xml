@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ProgressBar
+        android:id="@+id/fragment_home_restaurant_category_progressbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"
+        app:layout_constraintVertical_bias="0.2"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:id="@+id/fragment_home_restaurant_category_txt_view_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/txtViewNetworkError"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="gone"
+        android:text="No Search Results"
+        app:layout_constraintVertical_bias="0.3"/>
+
+    <TextView
+        android:id="@+id/fragment_home_restaurant_category_txt_view_top"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="Restaurant Name"
+        android:textSize="@dimen/txt_txt_view_15"
+        android:textColor="@color/lightMagenta"
+        android:textStyle="bold"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fragment_home_restaurant_category_constraint_empty_view_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/fragment_home_restaurant_category_txt_view_top"
+        app:layout_constraintBottom_toBottomOf="parent">
+
+        <ImageView
+            android:id="@+id/fragment_home_restaurant_category_img_empty_view"
+            android:layout_width="@dimen/dim_img_empty_recycler_default_100"
+            android:layout_height="@dimen/dim_img_empty_recycler_default_100"
+            app:srcCompat="@drawable/ic_plus_empty_recycler"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintVertical_bias="0.4"/>
+        <TextView
+            android:id="@+id/fragment_home_restaurant_category_txt_view_empty_view"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/fragment_home_restaurant_category_img_empty_view"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            style="@style/txtViewNetworkError"
+            android:text="@string/home_restaurant_fragment_txt_view_empty_view"/>
+        <ImageView
+            android:id="@+id/fragment_home_restaurant_category_img_arrow_empty_view"
+            android:layout_width="@dimen/dim_img_btm_arrow_empty_recycler_default_50"
+            android:layout_height="@dimen/dim_img_btm_arrow_empty_recycler_default_50"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="@dimen/_55sdp"
+            android:layout_marginBottom="@dimen/dim_margin_vertical_inside_5"
+            app:srcCompat="@drawable/ic_arrow_forward_light_grey_24dp"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/fragment_home_restaurant_category_recycler"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/fragment_home_restaurant_category_txt_view_top"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fragment_home_restaurant_category_floating_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:backgroundTint="@color/white"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:srcCompat="@drawable/ic_plus_light_magenta"
+        android:layout_marginEnd="@dimen/dim_margin_horizontal_inside_10"
+        android:layout_marginBottom="@dimen/dim_margin_vertical_inside_10"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

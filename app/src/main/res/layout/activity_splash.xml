@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/lightGrey"
+    tools:context=".view.activity.SplashActivity">
+
+    <RelativeLayout
+        android:id="@+id/activity_splash_img_container_top_corner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+        <ImageView
+            android:id="@+id/activity_splash_img_top_corner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="-50dp"
+            android:layout_marginStart="-50dp"
+            android:src="@drawable/splash_top_corner"
+            />
+    </RelativeLayout>
+
+
+    <ImageView
+        android:id="@+id/activity_splash_img_sofra_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="-100dp"
+        android:layout_marginEnd="-100dp"
+        android:src="@drawable/splash_sofra"
+        app:layout_constraintTop_toBottomOf="@id/activity_splash_img_container_top_corner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+    <Button
+        android:id="@+id/activity_splash_btn_order_food"
+
+        style="@style/BtnSplash"
+        android:layout_marginStart="@dimen/dim_btn_login_margin_start_50"
+        android:layout_marginEnd="@dimen/dim_btn_login_margin_start_50"
+        android:layout_marginTop="80dp"
+        app:layout_constraintTop_toBottomOf="@id/activity_splash_img_sofra_logo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/splash_activity_order_food"/>
+
+
+    <Button
+        android:id="@+id/activity_splash_btn_sell_food"
+        android:layout_marginStart="@dimen/dim_btn_login_margin_start_50"
+        android:layout_marginEnd="@dimen/dim_btn_login_margin_start_50"
+        style="@style/BtnSplash"
+
+app:layout_constraintTop_toBottomOf="@id/activity_splash_btn_order_food"        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/splash_activity_sell_food"/>
+
+
+
+
+
+
+
+    <RelativeLayout
+        android:id="@+id/activity_splash_img_container_bottom_corner"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent">
+        <ImageView
+            android:id="@+id/activity_splash_img_bottom_corner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="-100dp"
+            android:layout_marginEnd="-100dp"
+            android:src="@drawable/splash_bottom_corner"
+            />
+    </RelativeLayout>
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

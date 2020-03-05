@@ -1,0 +1,78 @@
+<resources>
+    <string name="app_name">Sofra</string>
+    <string name="splash_activity_order_food">Order Food</string>
+    <string name="splash_activity_sell_food">Sell Food</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="login_fragment_btn_enter">Enter</string>
+
+    <string name="login_fragment_txt_view_you_dont_have_account">You Don\'t have an acc? Register</string>
+    <string name="login_fragment_txt_view_login">Login</string>
+    <string name="login_fragment_edt_txt_password">Password</string>
+    <string name="login_fragment_edt_txt_email">Email</string>
+    <string name="login_fragment_edt_txt_did_you_forget">Did you forget your password</string>
+    <string name="register_res_step_1_fragment_edt_txt_res_name">Restaurant Name</string>
+    <string name="register_res_step_1_fragment_edt_txt_deliver_time">Delivery Time</string>
+    <string name="register_res_step_1_fragment_edt_txt_confirm_password">Confirm Password</string>
+    <string name="register_res_step_1_fragment_edt_txt_min_amount_order">Min Amount to Order</string>
+    <string name="register_res_step_1_fragment_edt_txt_delivery_charge">Delivery Charge</string>
+    <string name="register_res_step_1_fragment_btn_continue">Continue</string>
+    <string name="register_res_step_2_fragment_txt_view_contact_info">Contact Info</string>
+    <string name="register_res_step_2_fragment_edt_txt_phone">Phone</string>
+    <string name="register_res_step_2_fragment_edt_txt_whats">WhatsApp</string>
+    <string name="register_res_step_2_fragment_txt_view_shop_phote">Shop Photo</string>
+    <string name="register_res_step_2_fragment_btn_register">Register</string>
+    <string name="register_client_fragment_edt_txt_name">Name</string>
+    <string name="forget_password_fragment_please_enter_email">Please Enter Your Email</string>
+    <string name="forget_password_fragment_btn_send">Send</string>
+    <string name="reset_password_fragment_please_enter_code">Please Enter The Code Sent to you</string>
+    <string name="reset_password_fragment_edt_txt_code">Code</string>
+    <string name="reset_password_fragment_please_enter_new_password">Please Enter the New Password</string>
+    <string name="spinner_city_def_city">City</string>
+    <string name="spinner_region_def_region">Region</string>
+    <string name="default_response_no_internet_connection">No Internet Connection</string>
+    <string name="forget_password_fragment_btn_next">Next</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="bottom_nav_title_home">Home</string>
+    <string name="bottom_nav_title_order">Orders</string>
+    <string name="bottom_nav_title_account">Account</string>
+    <string name="bottom_nav_title_more">More</string>
+    <string name="item_recycler_home_client_txt_view_min_charge">Min Charge :</string>
+    <string name="item_recycler_home_client_txt_view_deliver_cost">Deliver Cost :</string>
+    <string name="item_recycler_home_client_txt_view_res_status_open">Open</string>
+    <string name="item_recycler_home_client_txt_view_res_status_closed">Closed</string>
+    <string name="catch_should_select_city">You should select a city</string>
+    <string name="home_client_restaurant_details_comments_fragment_txt_view_top">We are glad to share comment and rate us</string>
+    <string name="home_client_restaurant_details_comments_fragment_btn_add_comment">Add comment or rate</string>
+    <string name="dialog_rate_restaurant_text_top_choose_rate">Choose Rate</string>
+    <string name="dialog_rate_restaurant_edt_txt_add_comment">Add your comment here</string>
+    <string name="dialog_rate_restaurant_btn_add">Add</string>
+    <string name="dialog_rate_restaurant_def_message_you_should_select_rate">You Should Select Rate</string>
+    <string name="home_client_restaurant_details_store_info_fragment_txt_view_status">Status</string>
+    <string name="home_client_restaurant_details_store_info_fragment_txt_view_city">City</string>
+    <string name="home_client_restaurant_details_store_info_fragment_txt_view_region">Region</string>
+    <string name="home_client_restaurant_details_store_info_fragment_txt_view_min_charge">Min Charge</string>
+    <string name="home_client_restaurant_details_store_info_fragment_txt_view_delivery_cost">Deliver Cost</string>
+    <string name="item_home_client_restaurant_food_txt_view_price">Price :</string>
+    <string name="default_response_no_data_for_this_category">No Data  For This Category</string>
+    <string name="default_response_no_comments_yet">No Comments Posted Yet</string>
+    <string name="home_client_restaurant_details_pager_tab_txt_food_menu">Food Menu</string>
+    <string name="home_client_restaurant_details_pager_tab_txt_comments_rate">Comments and Rate</string>
+    <string name="home_client_restaurant_details_pager_tab_txt_store_info">Store Info</string>
+    <string name="home_restaurant_fragment_txt_view_top">My Categories</string>
+    <string name="default_response_something_wrong_happened_please_refresh">Something Wrong Happened Please Try Refreash</string>
+    <string name="dialog_category_edt_txt_hint_category_name">Category Name</string>
+    <string name="dialog_restaurant_category_btn_modify">Modify</string>
+    <string name="dialog_restaurant_category_top_txt_view_modify_category">Modify Category</string>
+    <string name="home_restaurant_fragment_txt_view_empty_view">Click Here To Add Category</string>
+    <string name="home_restaurant_add_category_item_fragment_txt_view_top">Add Product Photo</string>
+    <string name="home_restaurant_add_category_item_fragment_edt_txt_prodct_name_hint">product name</string>
+    <string name="home_restaurant_add_category_item_fragment_edt_txt_shrt_desc_hint">short description</string>
+    <string name="home_restaurant_add_category_item_fragment_edt_txt_price_hint">price</string>
+    <string name="home_restaurant_add_category_item_fragment_edt_txt_offer_price_hint">offer price</string>
+    <string name="default_response_should_select_a_photo">Should Select a Photo</string>
+    <string name="item_restaurant_category_item_txt_view_price">Price</string>
+
+
+</resources>

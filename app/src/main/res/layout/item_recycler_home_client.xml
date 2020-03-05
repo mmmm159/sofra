@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginTop="@dimen/dim_margin_top_recycler_restaurant_10"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <FrameLayout
+        android:id="@+id/item_recycler_home_client_frame_info"
+        android:layout_width="@dimen/dim_item_restaurant_width_220"
+        android:layout_height="@dimen/dim_item_restaurant_height_110"
+        android:layout_marginStart="@dimen/_50sdp"
+        android:background="@drawable/background_home_client_spinner"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/item_recycler_home_client_txt_view_res_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:layout_marginTop="@dimen/dim_margin_vertical_10"
+        android:text="Restaurant Name"
+        android:textColor="@color/lightMagenta"
+        android:textSize="@dimen/txt_edt_txt_15"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toTopOf="@id/item_recycler_home_client_linear_layout_stars"
+        app:layout_constraintStart_toEndOf="@id/item_recycler_home_client_img"
+        app:layout_constraintTop_toTopOf="@id/item_recycler_home_client_frame_info"
+        app:layout_constraintVertical_chainStyle="packed" />
+
+    <LinearLayout
+        android:id="@+id/item_recycler_home_client_linear_layout_stars"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@id/item_recycler_home_client_txt_view_min_charge"
+        app:layout_constraintStart_toStartOf="@id/item_recycler_home_client_txt_view_res_name"
+        app:layout_constraintTop_toBottomOf="@id/item_recycler_home_client_txt_view_res_name">
+
+        <ImageView
+            android:id="@+id/item_recycler_home_client_star_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_star_border_black_24dp" />
+
+        <ImageView
+            android:id="@+id/item_recycler_home_client_star_2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_star_border_black_24dp" />
+
+        <ImageView
+            android:id="@+id/item_recycler_home_client_star_3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_star_border_black_24dp" />
+
+        <ImageView
+            android:id="@+id/item_recycler_home_client_star_4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_star_border_black_24dp" />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/item_recycler_home_client_txt_view_min_charge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/item_recycler_home_client_txt_view_min_charge"
+        android:textColor="@color/grey"
+        android:textSize="@dimen/txt_edt_txt_10"
+        app:layout_constraintBottom_toTopOf="@id/item_recycler_home_client_txt_view_deliver_cost"
+        app:layout_constraintStart_toStartOf="@id/item_recycler_home_client_txt_view_res_name"
+        app:layout_constraintTop_toBottomOf="@id/item_recycler_home_client_linear_layout_stars" />
+
+    <TextView
+        android:id="@+id/item_recycler_home_client_txt_view_deliver_cost"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/item_recycler_home_client_txt_view_deliver_cost"
+        android:textColor="@color/grey"
+        android:textSize="@dimen/txt_edt_txt_10"
+        app:layout_constraintStart_toStartOf="@id/item_recycler_home_client_txt_view_res_name"
+        app:layout_constraintTop_toBottomOf="@id/item_recycler_home_client_txt_view_min_charge" />
+
+    <TextView
+        android:id="@+id/item_recycler_home_client_txt_view_min_charge_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:text="50"
+        android:textColor="@color/grey"
+        android:textSize="@dimen/txt_edt_txt_10"
+        app:layout_constraintStart_toEndOf="@id/item_recycler_home_client_txt_view_min_charge"
+        app:layout_constraintTop_toTopOf="@id/item_recycler_home_client_txt_view_min_charge" />
+
+    <TextView
+        android:id="@+id/item_recycler_home_client_txt_view_delivery_cost_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/_5sdp"
+        android:text="50"
+        android:textColor="@color/grey"
+        android:textSize="@dimen/txt_edt_txt_10"
+        app:layout_constraintStart_toEndOf="@id/item_recycler_home_client_txt_view_deliver_cost"
+        app:layout_constraintTop_toTopOf="@id/item_recycler_home_client_txt_view_deliver_cost" />
+
+    <LinearLayout
+        android:id="@+id/item_recycler_home_client_linear_res_status"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/_5sdp"
+        android:layout_marginEnd="@dimen/_10sdp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="@id/item_recycler_home_client_frame_info"
+        app:layout_constraintTop_toTopOf="@id/item_recycler_home_client_txt_view_res_name">
+
+        <ImageView
+            android:id="@+id/item_recycler_home_client_circle_res_status"
+            android:layout_width="@dimen/_10sdp"
+            android:layout_height="@dimen/_10sdp"
+            android:layout_marginTop="@dimen/_2sdp"
+            android:layout_marginEnd="@dimen/_2sdp"
+            android:src="@drawable/shape_circle_green" />
+
+        <TextView
+            android:id="@+id/item_recycler_home_client_txt_view_res_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/item_recycler_home_client_txt_view_res_status_open"
+            android:textColor="@color/green_res_status" />
+
+    </LinearLayout>
+
+
+    <de.hdodenhof.circleimageview.CircleImageView xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/item_recycler_home_client_img"
+        android:layout_width="@dimen/dim_item_recycler_home_client_img_95"
+        android:layout_height="@dimen/dim_item_recycler_home_client_img_95"
+        android:src="@drawable/auth_background"
+
+        app:layout_constraintBottom_toBottomOf="@id/item_recycler_home_client_frame_info"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@id/item_recycler_home_client_frame_info" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

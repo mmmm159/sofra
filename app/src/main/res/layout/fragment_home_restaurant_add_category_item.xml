@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+<RelativeLayout
+
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/fragment_home_restaurant_add_category_item_txt_view_top"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dim_margin_vertical_10"
+                    style="@style/txtViewBlackTopRestaurantCycle"
+                    android:text="@string/home_restaurant_add_category_item_fragment_txt_view_top"/>
+
+                <androidx.cardview.widget.CardView
+                    android:layout_gravity="center"
+                    android:layout_marginTop="@dimen/dim_margin_vertical_20"
+                    app:cardCornerRadius="@dimen/_10sdp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+
+                        android:id="@+id/fragment_home_restaurant_add_category_item_img"
+                        android:layout_width="@dimen/dim_img_item_restaurant_category_wdth_70"
+                        android:layout_height="@dimen/dim_img_item_restaurant_category_heit_50"
+                        android:scaleType="centerCrop"
+                        app:srcCompat="@drawable/ic_images_folder"/>
+                </androidx.cardview.widget.CardView>
+
+                <EditText
+                    android:id="@+id/fragment_home_restaurant_add_category_item_edt_txt_product_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dim_edt_txt_height_40"
+                    style="@style/edtTxtAddRstaurantItemCategory"
+                    android:layout_marginTop="@dimen/dim_margin_vertical_25"
+                    android:hint="@string/home_restaurant_add_category_item_fragment_edt_txt_prodct_name_hint"
+                    />
+
+                <EditText
+                    android:id="@+id/fragment_home_restaurant_add_category_item_edt_txt_short_desc"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dim_edt_txt_height_120"
+                    style="@style/edtTxtAddRstaurantItemCategory"
+                    android:gravity="top"
+                    android:paddingTop="@dimen/dim_margin_vertical_inside_10"
+                    android:background="@drawable/background_item_restaurant_categories_white_w_shadow"
+                    android:layout_marginTop="@dimen/dim_margin_vertical_10"
+                    android:hint="@string/home_restaurant_add_category_item_fragment_edt_txt_shrt_desc_hint"
+
+                    />
+
+                <EditText
+                    android:id="@+id/fragment_home_restaurant_add_category_item_edt_txt_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dim_edt_txt_height_40"
+                    style="@style/edtTxtAddRstaurantItemCategory"
+                    android:layout_marginTop="@dimen/dim_margin_vertical_10"
+                    android:hint="@string/home_restaurant_add_category_item_fragment_edt_txt_price_hint"
+                    />
+                <EditText
+                    android:id="@+id/fragment_home_restaurant_add_category_item_edt_txt_offer_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dim_edt_txt_height_40"
+                    style="@style/edtTxtAddRstaurantItemCategory"
+                    android:layout_marginTop="@dimen/dim_margin_vertical_10"
+                    android:hint="@string/home_restaurant_add_category_item_fragment_edt_txt_offer_price_hint"
+                    />
+
+                <Button
+                    android:id="@+id/fragment_home_restaurant_add_category_item_btn_add"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dim_btn_height_30"
+                    style="@style/BtnSplashSmallerText"
+                    android:layout_marginTop="@dimen/dim_margin_vertical_20"
+                    android:text="@string/dialog_rate_restaurant_btn_add"
+                    android:layout_marginStart="@dimen/dim_btn_margin_start_70"
+                    android:layout_marginEnd="@dimen/dim_btn_margin_start_70"/>
+
+
+
+
+            </LinearLayout>
+
+
+
+
+
+    <ProgressBar
+        android:id="@+id/fragment_home_restaurant_add_category_item_progressbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        />
+
+
+
+</RelativeLayout>
+    </ScrollView>
+
+

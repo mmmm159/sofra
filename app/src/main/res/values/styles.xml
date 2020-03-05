@@ -1,0 +1,117 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/magenta</item>
+        <item name="android:fontFamily">@font/janna</item>
+    </style>
+
+    <style name="HomeActivityTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/white</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/lightMagenta</item>
+        <item name="android:fontFamily">@font/janna</item>
+    </style>
+
+
+    <style name="BtnSplash" >
+        <!-- Customize your theme here. -->
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/txt_btn_splash</item>
+        <item name="android:background">@drawable/background_splash_btn_selector</item>
+    </style>
+
+    <style name="BtnSplashSmallerText" >
+        <!-- Customize your theme here. -->
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textSize">@dimen/txt_txt_view_10</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:background">@drawable/background_splash_btn_selector</item>
+
+    </style>
+
+    <style name="txtInputLayout" >
+        <!-- Customize your theme here. -->
+        <item name="android:textColorHint">@color/white</item>
+        <item name="android:backgroundTint">@color/white</item>
+        <item name="android:layout_marginStart">@dimen/dim_edt_txt_login_margin_20</item>
+        <item name="android:layout_marginEnd">@dimen/dim_edt_txt_login_margin_20</item>
+
+    </style>
+
+
+    <style name="txtInputEdtTxt" >
+        <!-- Customize your theme here. -->
+        <item name="android:textSize">@dimen/txt_edt_txt_15</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:drawablePadding">@dimen/_5sdp</item>
+        <item name="android:backgroundTint">@color/white</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+    </style>
+
+    <style name="edtTxtResetPassword">
+        <item name="android:paddingStart">@dimen/_10sdp</item>
+        <item name="android:paddingEnd">@dimen/_10sdp</item>
+        <item name="android:textColor">@color/magenta</item>
+        <item name="android:textSize">@dimen/txt_edt_txt_12</item>
+        <item name="android:background">@drawable/background_reset_password_edt_txt</item>
+        <item name="android:layout_marginStart">@dimen/dim_edt_txt_login_margin_20</item>
+        <item name="android:layout_marginEnd">@dimen/dim_edt_txt_login_margin_20</item>
+    </style>
+
+    <style name="edtTxtHomeClient">
+        <item name="android:paddingStart">@dimen/_5sdp</item>
+        <item name="android:paddingEnd">@dimen/_5sdp</item>
+        <item name="android:textColor">@color/lightMagenta</item>
+        <item name="android:textSize">@dimen/txt_edt_txt_10</item>
+        <item name="android:background">@drawable/background_home_client_spinner</item>
+
+    </style>
+
+
+
+
+    <style name="txtViewNetworkError">
+
+        <item name="android:textColor">@color/grey_ccc</item>
+        <item name="android:textSize">@dimen/txt_22</item>
+        <item name="android:textStyle">bold</item>
+
+    </style>
+
+
+
+    <style name="txtViewDialog">
+
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/txt_18</item>
+
+    </style>
+
+
+    <style name="txtViewBlackTopRestaurantCycle">
+
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/txt_txt_view_15</item>
+        <item name="android:textStyle">bold</item>
+
+    </style>
+
+
+    <style name="edtTxtAddRstaurantItemCategory">
+        <item name="android:paddingStart">@dimen/_15sdp</item>
+        <item name="android:paddingEnd">@dimen/_15sdp</item>
+        <item name="android:textColor">@color/lightMagenta</item>
+        <item name="android:textSize">@dimen/txt_edt_txt_12</item>
+        <item name="android:background">@drawable/background_restaurant_add_cat_item_edttxt_white_shadow_rad_50</item>
+        <item name="android:layout_marginStart">@dimen/dim_edt_txt_login_margin_20</item>
+        <item name="android:layout_marginEnd">@dimen/dim_edt_txt_login_margin_20</item>
+    </style>
+
+
+</resources>

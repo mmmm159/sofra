@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/lightMagentaLowOpacity">
+    <ProgressBar
+
+        android:id="@+id/fragment_register_res_step_1_progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/auth_background" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/fragment_register_res_step_1_txt_input_res_name"
+                style="@style/txtInputLayout"
+                android:layout_width="match_parent"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="@dimen/dim_margin_bottom_txt_input_5"
+                android:layout_height="@dimen/dim_edt_txt_height_45"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fragment_register_res_step_1_edt_txt_res_name"
+                    style="@style/txtInputEdtTxt"
+                    android:drawableStart="@drawable/ic_person_outline_white_24dp"
+                    android:hint="@string/register_res_step_1_fragment_edt_txt_res_name" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/fragment_register_res_step_1_txt_input_email"
+                style="@style/txtInputLayout"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="@dimen/dim_margin_bottom_txt_input_5"
+
+                android:layout_height="@dimen/dim_edt_txt_height_45"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fragment_register_res_step_1_edt_txt_email"
+                    style="@style/txtInputEdtTxt"
+                    android:inputType="textEmailAddress"
+                    android:drawableStart="@drawable/ic_mail_outline_white_24dp"
+                    android:hint="@string/login_fragment_edt_txt_email" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/fragment_register_res_step_1_txt_input_deliver_time"
+                style="@style/txtInputLayout"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="@dimen/dim_margin_bottom_txt_input_5"
+                android:layout_height="@dimen/dim_edt_txt_height_45"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fragment_register_res_step_1_edt_txt_deliver_time"
+                    style="@style/txtInputEdtTxt"
+                    android:inputType="number"
+                    android:drawableStart="@drawable/ic_access_time_white_24dp"
+                    android:hint="@string/register_res_step_1_fragment_edt_txt_deliver_time" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginStart="@dimen/dim_edt_txt_login_margin_20"
+                android:layout_marginEnd="@dimen/dim_edt_txt_login_margin_20"
+                >
+
+                <ImageView
+                    android:id="@+id/fragment_register_res_step_1_icon_spinner_city"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:paddingStart="2dp"
+                    app:srcCompat="@drawable/ic_home_white_24dp" />
+
+                <Spinner
+                    android:id="@+id/fragment_register_res_step_1_spinner_city"
+                    app:layout_constraintTop_toTopOf="parent"
+                    style="@style/Widget.AppCompat.Spinner.Underlined"
+                    android:paddingStart="@dimen/dim_spinner_txt_padding_20"
+                    android:paddingEnd="@dimen/dim_spinner_txt_padding_20"
+                    android:dropDownSelector="@drawable/ic_home_white_24dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dim_edt_txt_height_45"
+                    android:backgroundTint="@color/white" />
+
+                <!--<ImageView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center_vertical"-->
+                <!--android:padding="0dp"-->
+                <!--android:layout_marginEnd="11dp"-->
+                <!--android:src="@drawable/ic_arrow_downward_white_24dp"-->
+                <!--app:layout_constraintBottom_toBottomOf="parent"-->
+                <!--app:layout_constraintEnd_toEndOf="parent"-->
+                <!--app:layout_constraintTop_toTopOf="parent" />-->
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/fragment_register_res_step_1_constraint_region"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                      android:visibility="gone"
+                android:layout_marginStart="@dimen/dim_edt_txt_login_margin_20"
+                android:layout_marginEnd="@dimen/dim_edt_txt_login_margin_20"
+                >
+
+                <ImageView
+                    android:id="@+id/fragment_register_res_step_1_icon_spinner_neighbourhood"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:paddingStart="2dp"
+                    app:srcCompat="@drawable/ic_home_white_24dp" />
+
+                <Spinner
+                    android:id="@+id/fragment_register_res_step_1_spinner_neighbourhood"
+                    app:layout_constraintTop_toTopOf="parent"
+                    style="@style/Widget.AppCompat.Spinner.Underlined"
+                    android:paddingStart="@dimen/dim_spinner_txt_padding_20"
+                    android:paddingEnd="@dimen/dim_spinner_txt_padding_20"
+                    android:dropDownSelector="@drawable/ic_home_white_24dp"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/dim_edt_txt_height_45"
+                    android:backgroundTint="@color/white" />
+
+                <!--<ImageView-->
+                <!--android:layout_width="wrap_content"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_gravity="center_vertical"-->
+                <!--android:padding="0dp"-->
+                <!--android:layout_marginEnd="11dp"-->
+                <!--android:src="@drawable/ic_arrow_downward_white_24dp"-->
+                <!--app:layout_constraintBottom_toBottomOf="parent"-->
+                <!--app:layout_constraintEnd_toEndOf="parent"-->
+                <!--app:layout_constraintTop_toTopOf="parent" />-->
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/fragment_register_res_step_1_txt_input_password"
+                style="@style/txtInputLayout"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="@dimen/dim_margin_bottom_txt_input_5"
+
+                android:layout_height="@dimen/dim_edt_txt_height_45"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fragment_register_res_step_1_edt_txt_password"
+                    style="@style/txtInputEdtTxt"
+                    android:inputType="textPassword"
+                    android:drawableStart="@drawable/ic_lock_white_24dp"
+                    android:hint="@string/login_fragment_edt_txt_password" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/fragment_register_res_step_1_txt_input_confirm_password"
+                style="@style/txtInputLayout"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="@dimen/dim_margin_bottom_txt_input_5"
+
+                android:layout_height="@dimen/dim_edt_txt_height_45"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fragment_register_res_step_1_edt_txt_confirm_password"
+                    style="@style/txtInputEdtTxt"
+                    android:inputType="textPassword"
+                    android:drawableStart="@drawable/ic_lock_white_24dp"
+                    android:hint="@string/register_res_step_1_fragment_edt_txt_confirm_password" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/fragment_register_res_step_1_txt_input_min_amount_order"
+                style="@style/txtInputLayout"
+                android:layout_width="match_parent"
+                android:layout_marginBottom="@dimen/dim_margin_bottom_txt_input_5"
+
+                android:layout_height="@dimen/dim_edt_txt_height_45"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fragment_register_res_step_1_edt_txt_min_amount_order"
+                    style="@style/txtInputEdtTxt"
+                    android:inputType="number"
+                    android:drawableStart="@drawable/ic_attach_money_white_24dp"
+                    android:hint="@string/register_res_step_1_fragment_edt_txt_min_amount_order" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/fragment_register_res_step_1_txt_input_delivery_charge"
+                style="@style/txtInputLayout"
+                android:layout_width="match_parent"
+
+                android:layout_height="@dimen/dim_edt_txt_height_45"
+                app:errorEnabled="true">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/fragment_register_res_step_1_edt_txt_delivery_charge"
+                    style="@style/txtInputEdtTxt"
+                    android:inputType="number"
+                    android:drawableStart="@drawable/ic_attach_money_white_24dp"
+                    android:hint="@string/register_res_step_1_fragment_edt_txt_delivery_charge" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <Button
+                android:id="@+id/fragment_register_res_step_1_btn_continue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                style="@style/BtnSplash"
+                android:layout_marginTop="60dp"
+                android:layout_marginEnd="@dimen/dim_btn_login_margin_start_50"
+                android:layout_marginStart="@dimen/dim_btn_login_margin_start_50"
+                android:text="@string/register_res_step_1_fragment_btn_continue"/>
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+
+
+</RelativeLayout>

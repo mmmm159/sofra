@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#008577</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+    <color name="lightGrey">#E9E9E9</color>
+    <color name="white">#ffffff</color>
+    <color name="white_low_opacity">#34ffffff</color>
+
+
+    <color name="lightMagenta">#EC3554</color>
+    <color name="lightMagentaLowOpacity">#B2EC3554</color>
+
+    <color name="grey">#888888</color>
+    <color name="magenta">#A50C4A</color>
+    <color name="grey_ccc">#cccccc</color>
+    <color name="green_res_status">#2EF429</color>
+    <color name="black">#000000</color>
+    <color name="red">#ff0000</color>
+    <color name="green">#008000</color>
+
+
+</resources>

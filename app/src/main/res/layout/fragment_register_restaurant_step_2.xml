@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/lightMagentaLowOpacity"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/fragment_register_res_step_2_img_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/auth_background"
+        android:scaleType="centerCrop"/>
+
+    <TextView
+        android:id="@+id/fragment_register_res_step_2_txt_view_contact_info"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt_btn_splash"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/dim_margin_vertical_10"
+        android:layout_marginStart="@dimen/dim_margin_30"
+        android:text="@string/register_res_step_2_fragment_txt_view_contact_info"
+        />
+
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/fragment_register_res_step_2_txt_input_phone"
+        style="@style/txtInputLayout"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/dim_margin_top_5"
+        android:layout_height="@dimen/dim_edt_txt_height_45"
+        app:layout_constraintTop_toBottomOf="@id/fragment_register_res_step_2_txt_view_contact_info"
+        app:errorEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/fragment_register_res_step_2_edt_txt_phone"
+            style="@style/txtInputEdtTxt"
+            android:inputType="phone"
+            android:drawableStart="@drawable/ic_phone_white_24dp"
+            android:hint="@string/register_res_step_2_fragment_edt_txt_phone" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/fragment_register_res_step_2_txt_input_whats"
+        style="@style/txtInputLayout"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/dim_margin_top_5"
+        android:layout_height="@dimen/dim_edt_txt_height_45"
+        app:layout_constraintTop_toBottomOf="@id/fragment_register_res_step_2_txt_input_phone"
+        app:errorEnabled="true">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/fragment_register_res_step_2_edt_txt_whats"
+            style="@style/txtInputEdtTxt"
+            android:inputType="phone"
+            android:drawableStart="@drawable/ic_phone_white_24dp"
+            android:hint="@string/register_res_step_2_fragment_edt_txt_whats" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <TextView
+        android:id="@+id/fragment_register_res_step_2_txt_view_shop_photo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragment_register_res_step_2_txt_input_whats"
+        android:textColor="@color/white"
+        android:textSize="@dimen/txt_btn_splash"
+        android:textStyle="bold"
+        android:layout_marginTop="@dimen/dim_margin_vertical_10"
+        android:layout_marginStart="@dimen/dim_margin_30"
+        android:text="@string/register_res_step_2_fragment_txt_view_shop_phote"
+        />
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/fragment_register_res_step_2_img_shop_photo_card_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="@dimen/_10sdp"
+        app:layout_constraintTop_toBottomOf="@id/fragment_register_res_step_2_txt_view_shop_photo"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="@dimen/dim_margin_30"
+        android:layout_marginTop="@dimen/dim_margin_top_5">
+
+        <ImageView
+            android:id="@+id/fragment_register_res_step_2_img_shop_photo"
+            android:layout_width="@dimen/dim_img_register_wid_hie_60"
+            android:layout_height="@dimen/dim_img_register_wid_hie_60"
+            android:scaleType="center"
+            app:srcCompat="@drawable/ic_shop" />
+
+    </androidx.cardview.widget.CardView>
+
+
+    <Button
+        android:id="@+id/fragment_register_res_step_2_btn_register"
+        style="@style/BtnSplash"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/register_res_step_2_fragment_btn_register"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/fragment_register_res_step_2_img_shop_photo_card_view"
+        android:layout_marginStart="@dimen/dim_btn_login_margin_start_50"
+        android:layout_marginEnd="@dimen/dim_btn_login_margin_start_50"
+        app:layout_constraintVertical_bias="0.2"
+         />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

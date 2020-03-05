@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/dim_margin_vertical_inside_10"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ProgressBar
+        android:id="@+id/fragment_home_client_restaurant_details_store_info_progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:visibility="gone"
+        app:layout_constraintVertical_bias="0.2"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <TextView
+        android:id="@+id/fragment_home_client_restaurant_details_store_info_txt_view_network_error"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        style="@style/txtViewNetworkError"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="gone"
+        android:text="No Search Results"
+        app:layout_constraintVertical_bias="0.3"/>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/fragment_home_client_restaurant_details_store_info_constraint_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent">
+        <TextView
+            android:id="@+id/fragment_home_client_restaurant_details_store_info_txt_view_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/txtViewDialog"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="@string/home_client_restaurant_details_store_info_fragment_txt_view_status"/>
+
+        <TextView
+            android:id="@+id/fragment_home_client_restaurant_details_store_info_txt_view_status_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/txtViewDialog"
+            app:layout_constraintStart_toEndOf="@id/fragment_home_client_restaurant_details_store_info_txt_view_status"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="open"/>
+        <View
+            android:id="@+id/fragment_home_client_restaurant_details_store_info_line_1"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            app:layout_constraintTop_toBottomOf="@id/fragment_home_client_restaurant_details_store_info_txt_view_status"
+            android:background="@color/grey_ccc"/>
+
+
+        <TextView
+            android:id="@+id/fragment_home_client_restaurant_details_store_info_txt_view_city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/txtViewDialog"
+            app:layout_constraintStart_toStartOf="@id/fragment_home_client_restaurant_details_store_info_txt_view_status"
+            app:layout_constraintTop_toBottomOf="@id/fragment_home_client_restaurant_details_store_info_line_1"
+            android:text="@string/home_client_restaurant_details_store_info_fragment_txt_view_city"/>
+
+        <TextView
+            android:id="@+id/fragment_home_client_restaurant_details_store_info_txt_view_city_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/txtViewDialog"
+            app:layout_constraintStart_toStartOf="@id/fragment_home_client_restaurant_details_store_info_txt_view_status_value"
+            app:layout_constraintTop_toTopOf="@id/fragment_home_client_restaurant_details_store_info_txt_view_city"
+            android:text="Riyadh"/>
+        <View
+            android:id="@+id/fragment_home_client_restaurant_details_store_info_line_2"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            app:layout_constraintTop_toBottomOf="@id/fragment_home_client_restaurant_details_store_info_txt_view_city"
+            android:background="@color/grey_ccc"/>
+
+
+        <TextView
+            android:id="@+id/fragment_home_client_restaurant_details_store_info_txt_view_region"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/txtViewDialog"
+            app:layout_constraintStart_toStartOf="@id/fragment_home_client_restaurant_details_store_info_txt_view_status"
+            app:layout_constraintTop_toBottomOf="@id/fragment_home_client_restaurant_details_store_info_line_2"
+            android:text="@string/home_client_restaurant_details_store_info_fragment_txt_view_region"/>
+
+        <TextView
+            android:id="@+id/fragment_home_client_restaurant_details_store_info_txt_view_region_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/txtViewDialog"
+            app:layout_constraintStart_toStartOf="@id/fragment_home_client_restaurant_details_store_info_txt_view_status_value"
+            app:layout_constraintTop_toTopOf="@id/fragment_home_client_restaurant_details_store_info_txt_view_region"
+            android:text="Rawda"/>
+        <View
+            android:id="@+id/fragment_home_client_restaurant_details_store_info_line_3"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            app:layout_constraintTop_toBottomOf="@id/fragment_home_client_restaurant_details_store_info_txt_view_region"
+            android:background="@color/grey_ccc"/>
+
+
+        <TextView
+            android:id="@+id/fragment_home_client_restaurant_details_store_info_txt_view_min_charge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/txtViewDialog"
+            app:layout_constraintStart_toStartOf="@id/fragment_home_client_restaurant_details_store_info_txt_view_status"
+            app:layout_constraintTop_toBottomOf="@id/fragment_home_client_restaurant_details_store_info_line_3"
+            android:text="@string/home_client_restaurant_details_store_info_fragment_txt_view_min_charge"/>
+
+        <TextView
+            android:id="@+id/fragment_home_client_restaurant_details_store_info_txt_view_min_charge_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/txtViewDialog"
+            app:layout_constraintStart_toStartOf="@id/fragment_home_client_restaurant_details_store_info_txt_view_status_value"
+            app:layout_constraintTop_toTopOf="@id/fragment_home_client_restaurant_details_store_info_txt_view_min_charge"
+            android:text="9000"/>
+        <View
+            android:id="@+id/fragment_home_client_restaurant_details_store_info_line_4"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            app:layout_constraintTop_toBottomOf="@id/fragment_home_client_restaurant_details_store_info_txt_view_min_charge"
+            android:background="@color/grey_ccc"/>
+
+        <TextView
+            android:id="@+id/fragment_home_client_restaurant_details_store_info_txt_view_delivery_cost"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/txtViewDialog"
+            app:layout_constraintStart_toStartOf="@id/fragment_home_client_restaurant_details_store_info_txt_view_status"
+            app:layout_constraintTop_toBottomOf="@id/fragment_home_client_restaurant_details_store_info_line_4"
+            android:text="@string/home_client_restaurant_details_store_info_fragment_txt_view_delivery_cost"/>
+
+        <TextView
+            android:id="@+id/fragment_home_client_restaurant_details_store_info_txt_view_delivery_cost_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/txtViewDialog"
+            app:layout_constraintStart_toStartOf="@id/fragment_home_client_restaurant_details_store_info_txt_view_status_value"
+            app:layout_constraintTop_toTopOf="@id/fragment_home_client_restaurant_details_store_info_txt_view_delivery_cost"
+            android:text="55555"/>
+
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

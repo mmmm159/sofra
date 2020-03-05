@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginStart="@dimen/dim_margin_horizontal_inside_10"
+    android:layout_marginEnd="@dimen/dim_margin_horizontal_inside_10"
+    >
+
+    <TextView
+        android:id="@+id/dialog_rate_restaurant_txt_view_default_error"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/_150sdp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:background="@drawable/background_home_client_spinner"
+        android:gravity="center"
+        android:visibility="gone"
+        android:text="Oppppppppssss"
+        style="@style/txtViewDialog"/>
+    <ProgressBar
+        android:id="@+id/dialog_rate_restaurant_progressbar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:visibility="gone"/>
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+       android:id="@+id/dialog_rate_restaurant_constraint_main_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="@drawable/background_home_client_spinner"
+        >
+        <TextView
+            android:id="@+id/dialog_rate_restaurant_text_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            style="@style/txtViewDialog"
+            android:text="@string/dialog_rate_restaurant_text_top_choose_rate"
+            android:layout_marginTop="@dimen/dim_margin_vertical_inside_10"/>
+
+        <RadioGroup
+            android:id="@+id/dialog_rate_restaurant_radio_group_emoji"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            app:layout_constraintTop_toBottomOf="@id/dialog_rate_restaurant_text_top"
+            >
+            <RadioButton
+                android:id="@+id/dialog_rate_restaurant_emoji_angry"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dim_margin_horizontal_inside_10"
+                android:layout_marginEnd="@dimen/dim_margin_horizontal_inside_10"
+                android:button="@drawable/background_dialog_rate_angry_radiobtn_selector"/>
+            <RadioButton
+                android:id="@+id/dialog_rate_restaurant_emoji_sad"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dim_margin_horizontal_inside_10"
+                android:layout_marginEnd="@dimen/dim_margin_horizontal_inside_10"
+                android:button="@drawable/background_dialog_rate_sad_radiobtn_selector"/>
+            <RadioButton
+                android:id="@+id/dialog_rate_restaurant_emoji_smile"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dim_margin_horizontal_inside_10"
+                android:layout_marginEnd="@dimen/dim_margin_horizontal_inside_10"
+                android:button="@drawable/background_dialog_rate_smile_radiobtn_selector"/>
+            <RadioButton
+                android:id="@+id/dialog_rate_restaurant_emoji_laugh"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dim_margin_horizontal_inside_10"
+                android:layout_marginEnd="@dimen/dim_margin_horizontal_inside_10"
+                android:button="@drawable/background_dialog_rate_laugh_radiobtn_selector"/>
+            <RadioButton
+                android:id="@+id/dialog_rate_restaurant_emoji_love"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/dim_margin_horizontal_inside_10"
+                android:layout_marginEnd="@dimen/dim_margin_horizontal_inside_10"
+                android:button="@drawable/background_dialog_rate_love_radiobtn_selector"/>
+
+        </RadioGroup>
+        <EditText
+            android:id="@+id/dialog_rate_restaurant_edt_txt_add_comment"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dim_edt_txt_height_120"
+            android:layout_marginTop="@dimen/dim_margin_vertical_inside_10"
+            style="@style/edtTxtResetPassword"
+            android:textSize="@dimen/txt_edt_txt_10"
+            android:gravity="top"
+            android:paddingTop="@dimen/_10sdp"
+            android:hint="@string/dialog_rate_restaurant_edt_txt_add_comment"
+            app:layout_constraintTop_toBottomOf="@id/dialog_rate_restaurant_radio_group_emoji"/>
+
+        <TextView
+            android:id="@+id/dialog_rate_restaurant_txt_view_on_response_0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/red"
+            android:textSize="@dimen/txt_edt_txt_10"
+            android:text="errrrrrrrrrrrror"
+            android:visibility="gone"
+            app:layout_constraintTop_toBottomOf="@id/dialog_rate_restaurant_edt_txt_add_comment"
+            app:layout_constraintStart_toStartOf="@id/dialog_rate_restaurant_edt_txt_add_comment"
+            app:layout_constraintBottom_toTopOf="@id/dialog_rate_restaurant_btn_add"/>
+
+        <Button
+            android:id="@+id/dialog_rate_restaurant_btn_add"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/dim_height_btn_20"
+            style="@style/BtnSplashSmallerText"
+            app:layout_constraintTop_toBottomOf="@id/dialog_rate_restaurant_edt_txt_add_comment"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginTop="@dimen/dim_margin_vertical_inside_10"
+            android:layout_marginStart="@dimen/dim_btn_margin_start_70"
+            android:layout_marginEnd="@dimen/dim_btn_margin_start_70"
+            android:layout_marginBottom="@dimen/dim_margin_vertical_inside_10"
+            android:text="@string/dialog_rate_restaurant_btn_add"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
