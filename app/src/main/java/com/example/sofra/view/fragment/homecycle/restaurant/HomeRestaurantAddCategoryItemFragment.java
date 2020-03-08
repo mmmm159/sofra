@@ -1,6 +1,8 @@
 package com.example.sofra.view.fragment.homecycle.restaurant;
 
 
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -14,12 +16,15 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
+import com.bumptech.glide.Glide;
 import com.example.sofra.R;
 import com.example.sofra.data.api.ApiService;
 import com.example.sofra.data.api.RetrofitClient;
 import com.example.sofra.data.local.SharedPreference;
 import com.example.sofra.data.model.restaurant.newitem.NewItem;
+import com.example.sofra.data.model.restaurant.updateitem.UpdateItem;
 import com.example.sofra.utils.Utils;
+import com.example.sofra.view.activity.HomeActivity;
 import com.example.sofra.view.fragment.BaseFragment;
 import com.yanzhenjie.album.Action;
 import com.yanzhenjie.album.AlbumFile;
@@ -55,8 +60,15 @@ public class HomeRestaurantAddCategoryItemFragment extends BaseFragment {
     ProgressBar fragmentHomeRestaurantAddCategoryItemProgressbar;
 
     private ApiService apiService;
-    private String imgPath;
-    public int categoryId;
+
+   public String itemImgurl;
+   public String itemName;
+   public String itemDescription;
+   public String itemPrice;
+   public String itemOfferPrice;
+   public String itemId;
+   public boolean isUpdateItemFragment;
+    private String path;
 
 
     public HomeRestaurantAddCategoryItemFragment() {
@@ -77,20 +89,23 @@ public class HomeRestaurantAddCategoryItemFragment extends BaseFragment {
         fragmentHomeRestaurantAddCategoryItemEdtTxtShortDesc.setText("this so good لذيذ جدا جدا ");
         fragmentHomeRestaurantAddCategoryItemEdtTxtPrice.setText("30");
 
+        if (isUpdateItemFragment){
+            Glide.with(baseActivity).load(itemImgurl).into(fragmentHomeRestaurantAddCategoryItemImg);
+            fragmentHomeRestaurantAddCategoryItemEdtTxtProductName.setText(itemName);
+            fragmentHomeRestaurantAddCategoryItemEdtTxtPrice.setText(itemPrice);
+            fragmentHomeRestaurantAddCategoryItemEdtTxtOfferPrice.setText(itemOfferPrice);
+            fragmentHomeRestaurantAddCategoryItemEdtTxtShortDesc.setText(itemDescription);
+        }
 
         return view;
     }
 
     private void addNewItem() {
 
-        if (Utils.path==null){
-            Toast.makeText(baseActivity,
-                    baseActivity.getString(R.string.default_response_should_select_a_photo),
-                    Toast.LENGTH_SHORT).show();
-        }
-        else {
-            MultipartBody.Part imgfile = Utils.convertFileToMultipart(Utils.path, "photo");
-            Utils.path=null;
+
+
+            MultipartBody.Part imgfile = Utils.convertFileToMultipart(path, "photo");
+
             RequestBody name = RequestBody.create
                     (MediaType.parse("text/plain"), fragmentHomeRestaurantAddCategoryItemEdtTxtProductName.getText().toString());
 
@@ -104,7 +119,7 @@ public class HomeRestaurantAddCategoryItemFragment extends BaseFragment {
                     (MediaType.parse("text/plain"), fragmentHomeRestaurantAddCategoryItemEdtTxtOfferPrice.getText().toString());
 
             RequestBody catId = RequestBody.create
-                    (MediaType.parse("text/plain"), String.valueOf(categoryId));
+                    (MediaType.parse("text/plain"), String.valueOf(HomeRestaurantCategoryFragment.categoryId));
 
             RequestBody apiToken = RequestBody.create(MediaType.parse("text/plain"),
                     SharedPreference.loadString(baseActivity,SharedPreference.API_TOKEN_KEY));
@@ -143,7 +158,7 @@ public class HomeRestaurantAddCategoryItemFragment extends BaseFragment {
 
                 }
             });
-        }
+
 
 
 
@@ -160,11 +175,84 @@ public class HomeRestaurantAddCategoryItemFragment extends BaseFragment {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.fragment_home_restaurant_add_category_item_img:
-              Utils.selectImage(baseActivity, fragmentHomeRestaurantAddCategoryItemImg);
+              Utils.selectImage(baseActivity,  new Action<ArrayList<AlbumFile>>() {
+                  @Override
+                  public void onAction(@NonNull ArrayList<AlbumFile> result) {
+                      path = result.get(0).getPath();
+                      Utils.onLoadImageFromUrl(fragmentHomeRestaurantAddCategoryItemImg, path, baseActivity);
+                  }
+              });
                 break;
             case R.id.fragment_home_restaurant_add_category_item_btn_add:
+                if (isUpdateItemFragment){
+                    updateItem();
+                }
+                else
                 addNewItem();
+
                 break;
         }
+    }
+
+    private void updateItem() {
+
+        fragmentHomeRestaurantAddCategoryItemProgressbar.setVisibility(View.VISIBLE);
+
+        MultipartBody.Part imgFile = Utils.convertFileToMultipart(path,"photo");
+
+        RequestBody name = Utils.convertToRequestBody(fragmentHomeRestaurantAddCategoryItemEdtTxtProductName
+        .getText().toString());
+
+        RequestBody description = Utils.convertToRequestBody(fragmentHomeRestaurantAddCategoryItemEdtTxtShortDesc
+        .getText().toString());
+
+        RequestBody offerPrice = Utils.convertToRequestBody(fragmentHomeRestaurantAddCategoryItemEdtTxtOfferPrice
+        .getText().toString());
+
+        RequestBody price = Utils.convertToRequestBody(fragmentHomeRestaurantAddCategoryItemEdtTxtPrice
+        .getText().toString());
+
+        RequestBody itemId = Utils.convertToRequestBody(this.itemId);
+
+        RequestBody apiToken = Utils.convertToRequestBody(SharedPreference.loadString(baseActivity,SharedPreference.API_TOKEN_KEY));
+
+        RequestBody categoryId = Utils.convertToRequestBody(String.valueOf(HomeRestaurantCategoryFragment.categoryId));
+
+        apiService.updateItem(description,price,name,imgFile,itemId,apiToken,offerPrice
+        ,categoryId).enqueue(new Callback<UpdateItem>() {
+            @Override
+            public void onResponse(Call<UpdateItem> call, Response<UpdateItem> response) {
+                try {
+                    if (response.body().getStatus()==1) {
+
+                        fragmentHomeRestaurantAddCategoryItemProgressbar.setVisibility(View.GONE);
+
+                        Utils.alertDialog(baseActivity,
+                                baseActivity.getString(R.string.default_dialog_msg_update_done),
+                        true,baseActivity.getSupportFragmentManager(),
+                        R.id.activity_home_frame,new HomeRestaurantCategoryFragment());
+
+
+
+                    }
+                    else {
+                        fragmentHomeRestaurantAddCategoryItemProgressbar.setVisibility(View.GONE);
+                        Toast.makeText(baseActivity,response.body().getMsg(), Toast.LENGTH_SHORT).show();
+
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<UpdateItem> call, Throwable t) {
+
+                fragmentHomeRestaurantAddCategoryItemProgressbar.setVisibility(View.GONE);
+                Toast.makeText(baseActivity,
+                        baseActivity.getString(R.string.default_response_no_internet_connection),
+                        Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }

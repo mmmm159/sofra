@@ -73,6 +73,15 @@
     <string name="home_restaurant_add_category_item_fragment_edt_txt_offer_price_hint">offer price</string>
     <string name="default_response_should_select_a_photo">Should Select a Photo</string>
     <string name="item_restaurant_category_item_txt_view_price">Price</string>
+    <string name="default_dialog_msg_update_done">Update Done</string>
+    <string name="default_progress_dialog_msg_deleting">Deleting</string>
+    <string name="item_oreder_tv_client">Client :</string>
+    <string name="item_oreder_tv_oreder_num">Order num :</string>
+    <string name="item_oreder_tv_total">Total : </string>
+    <string name="item_oreder_tv_address">Address :</string>
+    <string name="item_oreder_btn_call">Call</string>
+    <string name="item_oreder_btn_accept">Accept</string>
+    <string name="item_oreder_btn_cancel">Cancel</string>
 
 
 </resources>

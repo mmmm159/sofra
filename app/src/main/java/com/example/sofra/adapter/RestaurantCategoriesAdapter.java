@@ -30,7 +30,10 @@ import com.example.sofra.utils.Utils;
 import com.example.sofra.view.activity.HomeActivity;
 import com.example.sofra.view.fragment.homecycle.restaurant.HomeRestaurantCategoryFragment;
 import com.example.sofra.view.fragment.homecycle.restaurant.HomeRestaurantFragment;
+import com.yanzhenjie.album.Action;
+import com.yanzhenjie.album.AlbumFile;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
@@ -115,6 +118,7 @@ public class RestaurantCategoriesAdapter extends RecyclerView.Adapter<Restaurant
         private ItemRestaurantData categoryData;
         private ApiService apiService;
         private boolean isCategoryEdited;
+        private String path;
 
         public RestaurantCategoryViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -131,7 +135,7 @@ public class RestaurantCategoriesAdapter extends RecyclerView.Adapter<Restaurant
                 case R.id.item_restaurant_category_img_btn_delete:
 
 
-                    Utils.showProgressDialog(context,"deleting");
+                    Utils.showProgressDialog(context,context.getString(R.string.default_progress_dialog_msg_deleting));
                     apiService.deleteCategory(SharedPreference.loadString(context, SharedPreference.API_TOKEN_KEY),
                             categoryData.getId()).enqueue(new Callback<EditCategory>() {
                         @Override
@@ -164,18 +168,9 @@ public class RestaurantCategoriesAdapter extends RecyclerView.Adapter<Restaurant
                     break;
                 case R.id.item_restaurant_category_img_btn_edit:
 
-                    Dialog editDialog = Utils.dialog(context, R.layout.dialog_category_restaurant);
-                    editDialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-                        @Override
-                        public void onDismiss(DialogInterface dialog) {
-                            HomeActivity homeActivity = (HomeActivity) context;
-                            homeActivity.getActivityBottomNav().setVisibility(View.VISIBLE);
-
-                            if (isCategoryEdited)
-                            Utils.replaceFragment(fragmentManager,R.id.activity_home_frame,
-                                    new HomeRestaurantFragment());
-                        }
-                    });
+                    Dialog editDialog = Utils.dialog(context, R.layout.dialog_category_restaurant
+                    ,isCategoryEdited,fragmentManager,R.id.activity_home_frame,
+                            new HomeRestaurantFragment());
 
                     dialogBtn = editDialog.findViewById(R.id.dialog_category_restaurant_btn);
                     dialogConstraintContainer = editDialog.findViewById(R.id.dialog_category_restaurant_constraint_container);
@@ -193,8 +188,8 @@ public class RestaurantCategoriesAdapter extends RecyclerView.Adapter<Restaurant
                     dialogImg.setOnClickListener(this);
                     dialogBtn.setOnClickListener(this);
 
-
                     break;
+
                 case R.id.item_restaurant_category_constraint_container:
 
                     int catId = categoryData.getId();
@@ -211,12 +206,19 @@ public class RestaurantCategoriesAdapter extends RecyclerView.Adapter<Restaurant
             switch (v.getId()) {
 
                 case R.id.dialog_category_restaurant_img:
-                    Utils.selectImage(context, dialogImg);
+                    Utils.selectImage(context, new Action<ArrayList<AlbumFile>>() {
+                        @Override
+                        public void onAction(@NonNull ArrayList<AlbumFile> result) {
+                            path = result.get(0).getPath();
+                            Utils.onLoadImageFromUrl(dialogImg, path, context);
+
+                        }
+                    });
                     break;
                 case R.id.dialog_category_restaurant_btn:
                     RequestBody name = RequestBody.create(MediaType.parse("text/plain"), dialogEdtTxt.getText().toString());
-                    MultipartBody.Part file = Utils.convertFileToMultipart(Utils.path, "photo");
-                    Utils.path = null;
+                    MultipartBody.Part file = Utils.convertFileToMultipart(path, "photo");
+
                     RequestBody apiToken = RequestBody.create(MediaType.parse("text/plain"),
                             SharedPreference.loadString(context, SharedPreference.API_TOKEN_KEY));
                     RequestBody catId = RequestBody.create(MediaType.parse("text/plain"), String.valueOf(categoryData.getId()));

@@ -18,6 +18,10 @@
     <color name="black">#000000</color>
     <color name="red">#ff0000</color>
     <color name="green">#008000</color>
+    <color name="greenLowOpacity">#B2008000</color>
+    <color name="darkBlue">#0F0F38</color>
+    <color name="darkBlueLowOpacity">#B20F0F38</color>
+    <color name="redWrong">#D51212</color>
 
 
 </resources>

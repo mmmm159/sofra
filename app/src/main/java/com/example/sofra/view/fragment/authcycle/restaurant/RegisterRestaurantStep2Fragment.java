@@ -11,6 +11,8 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+
 import com.example.sofra.R;
 import com.example.sofra.data.api.ApiService;
 import com.example.sofra.data.api.RetrofitClient;
@@ -18,6 +20,10 @@ import com.example.sofra.data.model.general.auth.Auth;
 import com.example.sofra.utils.Utils;
 import com.example.sofra.view.fragment.BaseFragment;
 import com.google.android.material.textfield.TextInputEditText;
+import com.yanzhenjie.album.Action;
+import com.yanzhenjie.album.AlbumFile;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -89,7 +95,7 @@ public class RegisterRestaurantStep2Fragment extends BaseFragment {
 
     private void sendData() {
 
-        MultipartBody.Part file = Utils.convertFileToMultipart(Utils.path, "photo");
+        MultipartBody.Part file = Utils.convertFileToMultipart(path, "photo");
         RequestBody restaurantName = RequestBody.create(MediaType.parse("text/plain"), RegisterRestaurantStep1Fragment.restaurantName);
         RequestBody email = RequestBody.create(MediaType.parse("text/plain"), RegisterRestaurantStep1Fragment.email);
         RequestBody deliveryTime = RequestBody.create(MediaType.parse("text/plain"), RegisterRestaurantStep1Fragment.deliverTime);
@@ -148,7 +154,13 @@ public class RegisterRestaurantStep2Fragment extends BaseFragment {
 
     private void selectImage() {
 
-        Utils.selectImage(baseActivity,fragmentRegisterResStep2ImgShopPhoto);
+        Utils.selectImage(baseActivity, new Action<ArrayList<AlbumFile>>() {
+            @Override
+            public void onAction(@NonNull ArrayList<AlbumFile> result) {
+                path = result.get(0).getPath();
+                Utils.onLoadImageFromUrl(fragmentRegisterResStep2ImgShopPhoto, path, baseActivity);
+            }
+        });
 
     }
 

@@ -15,6 +15,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -32,6 +33,8 @@ import com.example.sofra.utils.Utils;
 import com.example.sofra.view.activity.HomeActivity;
 import com.example.sofra.view.fragment.BaseFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.yanzhenjie.album.Action;
+import com.yanzhenjie.album.AlbumFile;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -67,6 +70,7 @@ public class HomeRestaurantFragment extends BaseFragment implements View.OnClick
 
     private String dialogImgPath;
     private boolean isCategoryAdded;
+    private String path;
 
     public HomeRestaurantFragment() {
         // Required empty public constructor
@@ -183,21 +187,8 @@ public class HomeRestaurantFragment extends BaseFragment implements View.OnClick
 
 
     private void showAddDialog() {
-        Dialog dialog = Utils.dialog(baseActivity, R.layout.dialog_category_restaurant);
-
-        dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialogInterface) {
-
-                HomeActivity homeActivity = (HomeActivity) baseActivity;
-                homeActivity.getActivityBottomNav().setVisibility(View.VISIBLE);
-
-                if (isCategoryAdded)
-                    Utils.replaceFragment(baseActivity.getSupportFragmentManager(),
-                            R.id.activity_home_frame,new HomeRestaurantFragment());
-
-            }
-        });
+        Dialog dialog = Utils.dialog(baseActivity, R.layout.dialog_category_restaurant
+        ,true,baseActivity.getSupportFragmentManager(),R.id.activity_home_frame,new HomeRestaurantFragment());
 
         dialogBtn = dialog.findViewById(R.id.dialog_category_restaurant_btn);
         dialogConstraintContainer = dialog.findViewById(R.id.dialog_category_restaurant_constraint_container);
@@ -223,7 +214,13 @@ public class HomeRestaurantFragment extends BaseFragment implements View.OnClick
                 addNewCategory();
                 break;
             case R.id.dialog_category_restaurant_img:
-                Utils.selectImage(baseActivity, dialogImg);
+                Utils.selectImage(baseActivity, new Action<ArrayList<AlbumFile>>() {
+                    @Override
+                    public void onAction(@NonNull ArrayList<AlbumFile> result) {
+                        path = result.get(0).getPath();
+                        Utils.onLoadImageFromUrl(dialogImg,path,baseActivity);
+                    }
+                });
 
                 break;
         }
@@ -232,18 +229,11 @@ public class HomeRestaurantFragment extends BaseFragment implements View.OnClick
 
     private void addNewCategory() {
 
-        if (Utils.path==null){
-            Toast.makeText(baseActivity,
-                    baseActivity.getString(R.string.default_response_should_select_a_photo),
-                    Toast.LENGTH_SHORT).show();
-        }
-        else {
-
-            RequestBody name = RequestBody.create(MediaType.parse("text/plain"), dialogEdtTxt.getText().toString());
+        RequestBody name = RequestBody.create(MediaType.parse("text/plain"), dialogEdtTxt.getText().toString());
             RequestBody apiToken = RequestBody.create(MediaType.parse("text/plain")
                     , SharedPreference.loadString(baseActivity,SharedPreference.API_TOKEN_KEY));
 
-            MultipartBody.Part file = Utils.convertFileToMultipart(Utils.path, "photo");
+            MultipartBody.Part file = Utils.convertFileToMultipart(path, "photo");
 
             Utils.showProgressBar(dialogConstraintContainer, dialogErrorTxtView, dialogProgressbar);
 
@@ -256,6 +246,7 @@ public class HomeRestaurantFragment extends BaseFragment implements View.OnClick
 
                             dialogErrorTxtView.setText(response.body().getMsg());
                             Utils.showErrorText(dialogConstraintContainer, dialogErrorTxtView, dialogProgressbar);
+                            Utils.customToast(baseActivity,response.body().getMsg(),false);
                             isCategoryAdded = true;
 
                         } else {
@@ -265,6 +256,7 @@ public class HomeRestaurantFragment extends BaseFragment implements View.OnClick
 
                         }
                     } catch (Exception e) {
+                        Log.d("exception", "onResponse: " + e.getMessage());
                         dialogErrorTxtView.setText(baseActivity.
                                 getString(R.string.default_response_something_wrong_happened_please_refresh));
                         Utils.showErrorText(dialogConstraintContainer, dialogErrorTxtView, dialogProgressbar);
@@ -275,14 +267,27 @@ public class HomeRestaurantFragment extends BaseFragment implements View.OnClick
                 @Override
                 public void onFailure(Call<NewCategory> call, Throwable t) {
 
-                    Log.d("restaurant", "onFailure: " + t.getMessage());
-                    Toast.makeText(baseActivity,
-                            baseActivity.getString(R.string.default_response_no_internet_connection),
-                            Toast.LENGTH_SHORT).show();
                     Utils.showContainer(dialogConstraintContainer, dialogErrorTxtView, dialogProgressbar);
+                    if (path==null) {
+
+                        Toast.makeText(baseActivity,
+                                baseActivity.getString(R.string.default_response_should_select_a_photo),
+                                Toast.LENGTH_SHORT).show();
+                    }
+                    else
+                    {
+                        Log.d("restaurant", "onFailure: " + t.getMessage());
+                        Toast.makeText(baseActivity,
+                                baseActivity.getString(R.string.default_response_no_internet_connection),
+                                Toast.LENGTH_SHORT).show();
+
+
+                    }
+
+
                 }
             });
-        }
+
 
 
     }

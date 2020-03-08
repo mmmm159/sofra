@@ -92,7 +92,7 @@ public class HomeRestaurantCategoryFragment extends BaseFragment {
         fragmentHomeRestaurantItemRecycler.addOnScrollListener(onEndLess);
         categoryItemDataList = new ArrayList<>();
         restaurantCategoryItemAdapter = new RestaurantCategoryItemAdapter(baseActivity);
-        restaurantCategoryItemAdapter.setData(categoryItemDataList);
+        restaurantCategoryItemAdapter.setData(categoryItemDataList , baseActivity.getSupportFragmentManager());
         fragmentHomeRestaurantItemRecycler.setAdapter(restaurantCategoryItemAdapter);
 
         Utils.showProgressBar(fragmentHomeRestaurantItemRecycler
@@ -161,7 +161,7 @@ public class HomeRestaurantCategoryFragment extends BaseFragment {
 
         HomeRestaurantAddCategoryItemFragment homeRestaurantAddCategoryItemFragment =
                 new HomeRestaurantAddCategoryItemFragment();
-        homeRestaurantAddCategoryItemFragment.categoryId = categoryId;
+       // homeRestaurantAddCategoryItemFragment.categoryId = categoryId;
         Utils.replaceFragment(baseActivity.getSupportFragmentManager()
         ,R.id.activity_home_frame,homeRestaurantAddCategoryItemFragment);
     }

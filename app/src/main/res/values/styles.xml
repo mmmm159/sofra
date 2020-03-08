@@ -114,4 +114,32 @@
     </style>
 
 
+    <style name="txtViewDarkBlueOrder">
+
+        <item name="android:textColor">@color/darkBlue</item>
+        <item name="android:textSize">@dimen/txt_txt_view_16</item>
+
+
+    </style>
+
+    android:textColor="@color/lightMagenta"
+    android:textSize="@dimen/_12ssp"
+
+    <style name="txtLightMagenta12">
+
+        <item name="android:textColor">@color/lightMagenta</item>
+        <item name="android:textSize">@dimen/txt_12</item>
+        <item name="android:includeFontPadding">false</item>
+
+
+    </style>
+
+    <style name="txtViewToastBlack15">
+
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/txt_txt_view_15</item>
+
+    </style>
+
+
 </resources>

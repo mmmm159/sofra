@@ -30,6 +30,7 @@
     <dimen name="dim_margin_top_recycler_restaurant_10">@dimen/_10sdp</dimen>
     <dimen name="txt_22">@dimen/_22ssp</dimen>
     <dimen name="txt_txt_view_15">@dimen/_15ssp</dimen>
+    <dimen name="txt_txt_view_16">@dimen/_16ssp</dimen>
     <dimen name="txt_txt_view_10">@dimen/_10ssp</dimen>
     <dimen name="dim_margin_horizontal_15">@dimen/_15sdp</dimen>
     <dimen name="dim_height_item_comment_70">@dimen/_70sdp</dimen>
@@ -53,4 +54,8 @@
     <dimen name="dim_margin_vertical_30">@dimen/_30sdp</dimen>
     <dimen name="dim_margin_horizontal_inside_5">@dimen/_5sdp</dimen>
     <dimen name="dim_margin_vertical_inside_15">@dimen/_15sdp</dimen>
+    <dimen name="dim_140">@dimen/_140sdp</dimen>
+    <dimen name="dim_wdth_80">@dimen/_80sdp</dimen>
+    <dimen name="dim_height_65">@dimen/_65sdp</dimen>
+    <dimen name="dim_160">@dimen/_160sdp</dimen>
 </resources>

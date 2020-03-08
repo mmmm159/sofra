@@ -11,8 +11,12 @@ import com.example.sofra.view.fragment.BaseFragment;
 
 
 import butterknife.ButterKnife;
+import butterknife.Unbinder;
 
 public class EmptyFragment extends BaseFragment {
+
+
+    private Unbinder unbiner;
 
 
     public EmptyFragment() {
@@ -26,7 +30,7 @@ public class EmptyFragment extends BaseFragment {
         // Inflate the layout for this fragment
         initFragment();
         View view =  inflater.inflate(R.layout.fragment_login, container, false);
-        ButterKnife.bind(this,view);
+       unbiner =  ButterKnife.bind(this,view);
         return view;
     }
 
@@ -35,4 +39,9 @@ public class EmptyFragment extends BaseFragment {
         super.onBack();
     }
 
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        unbiner.unbind();
+    }
 }

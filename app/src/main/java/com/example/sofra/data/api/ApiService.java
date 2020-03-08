@@ -182,6 +182,11 @@ public interface ApiService {
                                 @Part("category_id")RequestBody categoryId);
 
 
+    @POST("restaurant/delete-item")
+    @FormUrlEncoded
+    Call<UpdateItem> deleteItem(@Field("item_id") int itemId , @Field("api_token") String apiToken);
+
+
 
 
 }
