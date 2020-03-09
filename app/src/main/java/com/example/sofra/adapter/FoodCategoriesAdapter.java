@@ -13,7 +13,7 @@ import com.bumptech.glide.Glide;
 import com.example.sofra.R;
 import com.example.sofra.data.model.general.itemrestaurant.ItemRestaurantData;
 import com.example.sofra.utils.Utils;
-import com.example.sofra.view.fragment.homecycle.general.HomeClientRestaurantDetailsMenuFragment;
+import com.example.sofra.view.fragment.homecycle.client.HomeClientRestaurantDetailsMenuFragment;
 
 import java.util.List;
 

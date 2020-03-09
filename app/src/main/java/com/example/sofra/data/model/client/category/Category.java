@@ -1,10 +1,13 @@
 
-package com.example.sofra.data.model.general.reviewnopagination;
+package com.example.sofra.data.model.client.category;
 
+import java.util.List;
+
+import com.example.sofra.data.model.general.itemrestaurant.ItemRestaurantData;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class ReviewNoPagination {
+public class Category {
 
     @SerializedName("status")
     @Expose
@@ -14,7 +17,7 @@ public class ReviewNoPagination {
     private String msg;
     @SerializedName("data")
     @Expose
-    private ReviewNoPaginationData data;
+    private List<ItemRestaurantData> data = null;
 
     public Integer getStatus() {
         return status;
@@ -32,11 +35,11 @@ public class ReviewNoPagination {
         this.msg = msg;
     }
 
-    public ReviewNoPaginationData getData() {
+    public List<ItemRestaurantData> getData() {
         return data;
     }
 
-    public void setData(ReviewNoPaginationData data) {
+    public void setData(List<ItemRestaurantData> data) {
         this.data = data;
     }
 

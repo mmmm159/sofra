@@ -1,4 +1,4 @@
-package com.example.sofra.view.fragment.homecycle.general;
+package com.example.sofra.view.fragment.homecycle.client;
 
 
 import android.os.Bundle;

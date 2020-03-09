@@ -1,5 +1,5 @@
 
-package com.example.sofra.data.model.general.review;
+package com.example.sofra.data.model.client.review;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;

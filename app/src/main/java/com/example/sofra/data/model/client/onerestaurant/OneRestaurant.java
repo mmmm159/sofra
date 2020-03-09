@@ -1,5 +1,5 @@
 
-package com.example.sofra.data.model.general.onerestaurant;
+package com.example.sofra.data.model.client.onerestaurant;
 
 import com.example.sofra.data.model.general.auth.User;
 import com.google.gson.annotations.Expose;

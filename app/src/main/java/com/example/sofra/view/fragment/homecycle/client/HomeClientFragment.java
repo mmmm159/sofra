@@ -1,4 +1,4 @@
-package com.example.sofra.view.fragment.homecycle.general;
+package com.example.sofra.view.fragment.homecycle.client;
 
 
 import android.os.Bundle;
@@ -22,7 +22,7 @@ import com.example.sofra.data.api.ApiService;
 import com.example.sofra.data.api.RetrofitClient;
 import com.example.sofra.data.model.general.auth.User;
 import com.example.sofra.data.model.general.region.Region;
-import com.example.sofra.data.model.general.restaurant.Restaurant;
+import com.example.sofra.data.model.client.restaurant.Restaurant;
 import com.example.sofra.utils.GeneralSpinnerRequest;
 import com.example.sofra.utils.OnEndLess;
 import com.example.sofra.utils.Utils;

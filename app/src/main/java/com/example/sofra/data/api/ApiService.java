@@ -1,18 +1,19 @@
 package com.example.sofra.data.api;
 
 import com.example.sofra.data.model.general.auth.Auth;
-import com.example.sofra.data.model.general.category.Category;
+import com.example.sofra.data.model.client.category.Category;
 import com.example.sofra.data.model.restaurant.categorywithpagination.CategoryWithPagination;
 import com.example.sofra.data.model.general.itemrestaurant.ItemRestaurant;
-import com.example.sofra.data.model.general.onerestaurant.OneRestaurant;
+import com.example.sofra.data.model.client.onerestaurant.OneRestaurant;
 import com.example.sofra.data.model.general.region.Region;
 import com.example.sofra.data.model.general.reset.Reset;
-import com.example.sofra.data.model.general.restaurant.Restaurant;
-import com.example.sofra.data.model.general.review.Review;
-import com.example.sofra.data.model.general.reviewnopagination.ReviewNoPagination;
+import com.example.sofra.data.model.client.restaurant.Restaurant;
+import com.example.sofra.data.model.client.review.Review;
+import com.example.sofra.data.model.client.reviewnopagination.ReviewNoPagination;
 import com.example.sofra.data.model.restaurant.editcategory.EditCategory;
 import com.example.sofra.data.model.restaurant.newcategory.NewCategory;
 import com.example.sofra.data.model.restaurant.newitem.NewItem;
+import com.example.sofra.data.model.restaurant.orderrestaurant.OrderRestaurant;
 import com.example.sofra.data.model.restaurant.updateitem.UpdateItem;
 
 import okhttp3.MultipartBody;
@@ -185,6 +186,14 @@ public interface ApiService {
     @POST("restaurant/delete-item")
     @FormUrlEncoded
     Call<UpdateItem> deleteItem(@Field("item_id") int itemId , @Field("api_token") String apiToken);
+
+
+
+    @GET("restaurant/my-orders")
+    Call<OrderRestaurant> getAllOrders(@Query("api_token") String apiToken,
+                                       @Query("state") String state,   // can be either for current or completed
+                                       @Query("page") int page);
+
 
 
 

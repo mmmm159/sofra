@@ -1,8 +1,8 @@
 
-package com.example.sofra.data.model.general.review;
+package com.example.sofra.data.model.client.review;
 
 import com.example.sofra.data.model.general.auth.User;
-import com.example.sofra.data.model.general.restaurant.Restaurant;
+import com.example.sofra.data.model.client.restaurant.Restaurant;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

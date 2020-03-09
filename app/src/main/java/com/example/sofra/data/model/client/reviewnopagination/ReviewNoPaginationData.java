@@ -1,6 +1,6 @@
-package com.example.sofra.data.model.general.reviewnopagination;
+package com.example.sofra.data.model.client.reviewnopagination;
 
-import com.example.sofra.data.model.general.review.ReviewData;
+import com.example.sofra.data.model.client.review.ReviewData;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

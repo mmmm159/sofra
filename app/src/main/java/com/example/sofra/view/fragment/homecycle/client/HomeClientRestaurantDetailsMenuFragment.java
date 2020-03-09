@@ -1,4 +1,4 @@
-package com.example.sofra.view.fragment.homecycle.general;
+package com.example.sofra.view.fragment.homecycle.client;
 
 
 import android.os.Bundle;
@@ -16,7 +16,7 @@ import com.example.sofra.adapter.FoodCategoriesAdapter;
 import com.example.sofra.adapter.FoodItemsAdapter;
 import com.example.sofra.data.api.ApiService;
 import com.example.sofra.data.api.RetrofitClient;
-import com.example.sofra.data.model.general.category.Category;
+import com.example.sofra.data.model.client.category.Category;
 import com.example.sofra.data.model.general.itemrestaurant.ItemRestaurant;
 import com.example.sofra.data.model.general.itemrestaurant.ItemRestaurantData;
 import com.example.sofra.utils.OnEndLess;

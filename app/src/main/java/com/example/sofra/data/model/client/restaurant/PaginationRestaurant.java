@@ -1,18 +1,20 @@
 
-package com.example.sofra.data.model.general.review;
+package com.example.sofra.data.model.client.restaurant;
 
 import java.util.List;
+
+import com.example.sofra.data.model.general.auth.User;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class PaginationReview {
+public class PaginationRestaurant {
 
     @SerializedName("current_page")
     @Expose
     private Integer currentPage;
     @SerializedName("data")
     @Expose
-    private List<ReviewData> data = null;
+    private List<User> data = null;
     @SerializedName("first_page_url")
     @Expose
     private String firstPageUrl;
@@ -27,7 +29,7 @@ public class PaginationReview {
     private String lastPageUrl;
     @SerializedName("next_page_url")
     @Expose
-    private Object nextPageUrl;
+    private String nextPageUrl;
     @SerializedName("path")
     @Expose
     private String path;
@@ -52,11 +54,11 @@ public class PaginationReview {
         this.currentPage = currentPage;
     }
 
-    public List<ReviewData> getData() {
+    public List<User> getData() {
         return data;
     }
 
-    public void setData(List<ReviewData> data) {
+    public void setData(List<User> data) {
         this.data = data;
     }
 
@@ -92,11 +94,11 @@ public class PaginationReview {
         this.lastPageUrl = lastPageUrl;
     }
 
-    public Object getNextPageUrl() {
+    public String getNextPageUrl() {
         return nextPageUrl;
     }
 
-    public void setNextPageUrl(Object nextPageUrl) {
+    public void setNextPageUrl(String nextPageUrl) {
         this.nextPageUrl = nextPageUrl;
     }
 

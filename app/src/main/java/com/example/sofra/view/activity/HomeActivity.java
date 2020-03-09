@@ -11,12 +11,8 @@ import androidx.appcompat.widget.Toolbar;
 
 import com.example.sofra.R;
 import com.example.sofra.utils.Utils;
-import com.example.sofra.view.activity.BaseActivity;
-import com.example.sofra.view.fragment.homecycle.general.HomeClientFragment;
-import com.example.sofra.view.fragment.homecycle.general.HomeClientRestaurantDetailsCommentsFragment;
-import com.example.sofra.view.fragment.homecycle.general.HomeClientRestaurantDetailsMenuFragment;
-import com.example.sofra.view.fragment.homecycle.general.HomeClientRestaurantDetailsPagerFragment;
-import com.example.sofra.view.fragment.homecycle.general.HomeClientRestaurantDetailsStoreInfoFragment;
+import com.example.sofra.view.fragment.homecycle.client.HomeClientRestaurantDetailsMenuFragment;
+import com.example.sofra.view.fragment.homecycle.client.HomeClientRestaurantDetailsPagerFragment;
 import com.example.sofra.view.fragment.homecycle.restaurant.HomeRestaurantAddCategoryItemFragment;
 import com.example.sofra.view.fragment.homecycle.restaurant.HomeRestaurantCategoryFragment;
 import com.example.sofra.view.fragment.homecycle.restaurant.HomeRestaurantFragment;

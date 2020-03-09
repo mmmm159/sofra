@@ -1,13 +1,10 @@
 
-package com.example.sofra.data.model.general.category;
+package com.example.sofra.data.model.client.restaurant;
 
-import java.util.List;
-
-import com.example.sofra.data.model.general.itemrestaurant.ItemRestaurantData;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
-public class Category {
+public class Restaurant {
 
     @SerializedName("status")
     @Expose
@@ -17,7 +14,9 @@ public class Category {
     private String msg;
     @SerializedName("data")
     @Expose
-    private List<ItemRestaurantData> data = null;
+    private PaginationRestaurant data;
+
+
 
     public Integer getStatus() {
         return status;
@@ -35,12 +34,13 @@ public class Category {
         this.msg = msg;
     }
 
-    public List<ItemRestaurantData> getData() {
+    public PaginationRestaurant getData() {
         return data;
     }
 
-    public void setData(List<ItemRestaurantData> data) {
+    public void setData(PaginationRestaurant data) {
         this.data = data;
     }
+
 
 }

@@ -11,7 +11,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sofra.R;
-import com.example.sofra.data.model.general.review.ReviewData;
+import com.example.sofra.data.model.client.review.ReviewData;
 
 import java.util.List;
 

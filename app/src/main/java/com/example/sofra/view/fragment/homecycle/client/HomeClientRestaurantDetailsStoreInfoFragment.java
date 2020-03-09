@@ -1,4 +1,4 @@
-package com.example.sofra.view.fragment.homecycle.general;
+package com.example.sofra.view.fragment.homecycle.client;
 
 
 import android.os.Bundle;
@@ -13,7 +13,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import com.example.sofra.R;
 import com.example.sofra.data.api.ApiService;
 import com.example.sofra.data.api.RetrofitClient;
-import com.example.sofra.data.model.general.onerestaurant.OneRestaurant;
+import com.example.sofra.data.model.client.onerestaurant.OneRestaurant;
 import com.example.sofra.utils.Utils;
 import com.example.sofra.view.fragment.BaseFragment;
 
