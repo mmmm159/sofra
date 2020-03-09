@@ -1,4 +1,4 @@
-package com.example.sofra.adapter;
+package com.example.sofra.adapter.general;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

@@ -12,8 +12,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sofra.R;
-import com.example.sofra.adapter.FoodCategoriesAdapter;
-import com.example.sofra.adapter.FoodItemsAdapter;
+import com.example.sofra.adapter.client.FoodCategoriesAdapter;
+import com.example.sofra.adapter.client.FoodItemsAdapter;
 import com.example.sofra.data.api.ApiService;
 import com.example.sofra.data.api.RetrofitClient;
 import com.example.sofra.data.model.client.category.Category;

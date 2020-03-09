@@ -2,7 +2,6 @@ package com.example.sofra.view.fragment.homecycle.restaurant;
 
 
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -21,7 +20,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sofra.R;
-import com.example.sofra.adapter.RestaurantCategoriesAdapter;
+import com.example.sofra.adapter.restaurant.RestaurantCategoriesAdapter;
 import com.example.sofra.data.api.ApiService;
 import com.example.sofra.data.api.RetrofitClient;
 import com.example.sofra.data.local.SharedPreference;
@@ -30,7 +29,6 @@ import com.example.sofra.data.model.restaurant.categorywithpagination.CategoryWi
 import com.example.sofra.data.model.restaurant.newcategory.NewCategory;
 import com.example.sofra.utils.OnEndLess;
 import com.example.sofra.utils.Utils;
-import com.example.sofra.view.activity.HomeActivity;
 import com.example.sofra.view.fragment.BaseFragment;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.yanzhenjie.album.Action;

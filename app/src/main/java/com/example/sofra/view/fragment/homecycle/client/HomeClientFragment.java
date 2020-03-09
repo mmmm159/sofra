@@ -16,8 +16,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sofra.R;
-import com.example.sofra.adapter.RestaurantListAdapter;
-import com.example.sofra.adapter.SpinnerAdapter;
+import com.example.sofra.adapter.client.RestaurantListAdapter;
+import com.example.sofra.adapter.general.SpinnerAdapter;
 import com.example.sofra.data.api.ApiService;
 import com.example.sofra.data.api.RetrofitClient;
 import com.example.sofra.data.model.general.auth.User;

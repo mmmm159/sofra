@@ -21,7 +21,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sofra.R;
-import com.example.sofra.adapter.RestaurantCommentsAdapter;
+import com.example.sofra.adapter.client.RestaurantCommentsAdapter;
 import com.example.sofra.data.api.ApiService;
 import com.example.sofra.data.api.RetrofitClient;
 import com.example.sofra.data.model.client.review.Review;

@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import androidx.viewpager.widget.ViewPager;
 
 import com.example.sofra.R;
-import com.example.sofra.adapter.FragmentViewPagerAdapter;
+import com.example.sofra.adapter.general.FragmentViewPagerAdapter;
 import com.example.sofra.view.fragment.BaseFragment;
 import com.google.android.material.tabs.TabLayout;
 

@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.sofra.R;
-import com.example.sofra.adapter.RestaurantCategoryItemAdapter;
+import com.example.sofra.adapter.restaurant.RestaurantCategoryItemAdapter;
 import com.example.sofra.data.api.ApiService;
 import com.example.sofra.data.api.RetrofitClient;
 import com.example.sofra.data.local.SharedPreference;

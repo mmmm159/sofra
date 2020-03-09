@@ -8,7 +8,7 @@ import android.widget.Spinner;
 
 import androidx.constraintlayout.widget.ConstraintLayout;
 
-import com.example.sofra.adapter.SpinnerAdapter;
+import com.example.sofra.adapter.general.SpinnerAdapter;
 import com.example.sofra.data.model.general.region.GeneralResponse;
 import com.example.sofra.data.model.general.region.Region;
 

@@ -1,4 +1,4 @@
-package com.example.sofra.adapter;
+package com.example.sofra.adapter.client;
 
 import android.view.LayoutInflater;
 import android.view.View;

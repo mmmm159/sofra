@@ -1,4 +1,4 @@
-package com.example.sofra.adapter;
+package com.example.sofra.adapter.restaurant;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -30,7 +30,6 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
-import okhttp3.RequestBody;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;

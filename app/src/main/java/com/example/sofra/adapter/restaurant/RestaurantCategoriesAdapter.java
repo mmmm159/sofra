@@ -1,8 +1,7 @@
-package com.example.sofra.adapter;
+package com.example.sofra.adapter.restaurant;
 
 import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,7 +26,6 @@ import com.example.sofra.data.local.SharedPreference;
 import com.example.sofra.data.model.general.itemrestaurant.ItemRestaurantData;
 import com.example.sofra.data.model.restaurant.editcategory.EditCategory;
 import com.example.sofra.utils.Utils;
-import com.example.sofra.view.activity.HomeActivity;
 import com.example.sofra.view.fragment.homecycle.restaurant.HomeRestaurantCategoryFragment;
 import com.example.sofra.view.fragment.homecycle.restaurant.HomeRestaurantFragment;
 import com.yanzhenjie.album.Action;
