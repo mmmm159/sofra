@@ -6,7 +6,6 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
-import android.graphics.drawable.Drawable;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,7 +15,6 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
@@ -32,7 +30,6 @@ import com.yanzhenjie.album.AlbumConfig;
 import com.yanzhenjie.album.AlbumFile;
 
 import java.io.File;
-import java.nio.file.Path;
 import java.util.ArrayList;
 
 import okhttp3.MediaType;
@@ -94,7 +91,7 @@ public class Utils {
     public static boolean isUserRestaurant(Activity activity) {
 
         int userType = SharedPreference.loadInt(activity, SharedPreference.USER_TYPE_KEY);
-        return userType == SharedPreference.USER_TYPE_sell;
+        return userType == SharedPreference.USER_TYPE_SELL;
     }
 
     public static Dialog dialog(Context activity, int resId
@@ -245,5 +242,6 @@ public class Utils {
         toast.setView(layout);
         toast.show();
     }
+
 
 }

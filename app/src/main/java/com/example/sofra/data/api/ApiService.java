@@ -190,8 +190,14 @@ public interface ApiService {
 
 
     @GET("restaurant/my-orders")
-    Call<OrderRestaurant> getAllOrders(@Query("api_token") String apiToken,
-                                       @Query("state") String state,   // can be either for current or completed
+    Call<OrderRestaurant> getRestaurantAllOrders(@Query("api_token") String apiToken,
+                                       @Query("state") String state, // can be either for current or completed
+                                       @Query("page") int page);
+
+
+    @GET("client/my-orders")
+    Call<OrderRestaurant> getClientAllOrders(@Query("api_token") String apiToken,
+                                       @Query("state") String state, // can be either for current or completed
                                        @Query("page") int page);
 
 

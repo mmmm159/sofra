@@ -13,9 +13,10 @@ import com.example.sofra.R;
 import com.example.sofra.utils.Utils;
 import com.example.sofra.view.fragment.homecycle.client.HomeClientRestaurantDetailsMenuFragment;
 import com.example.sofra.view.fragment.homecycle.client.HomeClientRestaurantDetailsPagerFragment;
+import com.example.sofra.view.fragment.homecycle.general.OrdersContainerFragment;
 import com.example.sofra.view.fragment.homecycle.restaurant.HomeRestaurantAddCategoryItemFragment;
-import com.example.sofra.view.fragment.homecycle.restaurant.HomeRestaurantCategoryFragment;
 import com.example.sofra.view.fragment.homecycle.restaurant.HomeRestaurantFragment;
+import com.example.sofra.view.fragment.homecycle.general.OrderFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import butterknife.BindView;
@@ -77,12 +78,12 @@ public class HomeActivity extends BaseActivity {
                 case R.id.navigation_order_list:
 
                     Utils.replaceFragment(getSupportFragmentManager()
-                            , R.id.activity_home_frame, new HomeRestaurantAddCategoryItemFragment());
+                            , R.id.activity_home_frame, new OrdersContainerFragment());
 
                     return true;
                 case R.id.navigation_account:
                     Utils.replaceFragment(getSupportFragmentManager()
-                            , R.id.activity_home_frame, new HomeRestaurantCategoryFragment());
+                            , R.id.activity_home_frame, new OrderFragment());
 
                     return true;
                 case R.id.navigation_more:

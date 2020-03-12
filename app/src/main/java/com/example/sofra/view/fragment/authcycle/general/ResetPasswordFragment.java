@@ -85,7 +85,7 @@ public class ResetPasswordFragment extends BaseFragment {
                 call = apiService.newPasswordClient(code,password,confirmPassword);
                 callWebService(call);
                 break;
-            case SharedPreference.USER_TYPE_sell:
+            case SharedPreference.USER_TYPE_SELL:
                 call = apiService.newPasswordRestaurant(code,password,confirmPassword);
                 callWebService(call);
                 break;

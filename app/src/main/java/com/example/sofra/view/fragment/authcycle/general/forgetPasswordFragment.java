@@ -80,7 +80,7 @@ public class forgetPasswordFragment extends BaseFragment {
                 call = apiService.resetPasswordClient(email);
                 callWebService(call);
                 break;
-            case SharedPreference.USER_TYPE_sell:
+            case SharedPreference.USER_TYPE_SELL:
                 call = apiService.resetPasswordRestaurant(email);
                 callWebService(call);
                 break;

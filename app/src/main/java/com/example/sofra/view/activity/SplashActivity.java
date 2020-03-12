@@ -46,7 +46,7 @@ public class SplashActivity extends BaseActivity {
             case R.id.activity_splash_btn_sell_food:
 
 
-                SharedPreference.saveData(this,SharedPreference.USER_TYPE_KEY,SharedPreference.USER_TYPE_sell);
+                SharedPreference.saveData(this,SharedPreference.USER_TYPE_KEY,SharedPreference.USER_TYPE_SELL);
                 startActivity(new Intent(this,AuthActivity.class));
 
                 break;

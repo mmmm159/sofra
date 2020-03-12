@@ -13,6 +13,7 @@
 
     <color name="grey">#888888</color>
     <color name="magenta">#A50C4A</color>
+    <color name="magentaLowOpacity">#B2A50C4A</color>
     <color name="grey_ccc">#cccccc</color>
     <color name="green_res_status">#2EF429</color>
     <color name="black">#000000</color>

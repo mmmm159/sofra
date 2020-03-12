@@ -31,7 +31,7 @@
     <string name="reset_password_fragment_please_enter_new_password">Please Enter the New Password</string>
     <string name="spinner_city_def_city">City</string>
     <string name="spinner_region_def_region">Region</string>
-    <string name="default_response_no_internet_connection">No Internet Connection</string>
+    <string name="default_response_no_internet_connection">No Internet Connection Please Check Network And Reload</string>
     <string name="forget_password_fragment_btn_next">Next</string>
     <string name="title_activity_home">HomeActivity</string>
     <string name="bottom_nav_title_home">Home</string>
@@ -82,6 +82,19 @@
     <string name="item_oreder_btn_call">Call</string>
     <string name="item_oreder_btn_accept">Accept</string>
     <string name="item_oreder_btn_cancel">Cancel</string>
+    <string name="load_more_tv">Loading...</string>
+    <string name="data_error_btn_Reload">Reload</string>
+    <string name="default_response_no_orders_at_moment">No Orders At this Right Moment</string>
+    <string name="refresh">Refresh</string>
+    <string name="default_response_something_wrong_happened_please_try_again">Something Wrong Happened Please Try Again Later</string>
+    <string name="item_oreder_btn_confirm_recieve">Confirm Recieve</string>
+    <string name="item_oreder_btn_confirm_delivery">Confirm Delivery</string>
+    <string name="item_oreder_btn_rejected_order">Rejected Order</string>
+    <string name="item_oreder_btn_canceled_order">Canceled Order</string>
+    <string name="item_oreder_btn_completed_order">Completed Order</string>
+    <string name="fragment_order_container_new_orders">New Orders</string>
+    <string name="fragment_order_container_current_orders">Current Orders</string>
+    <string name="fragment_order_container_previous_orders">Previous Orders</string>
 
 
 </resources>

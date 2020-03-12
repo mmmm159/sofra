@@ -81,7 +81,7 @@ public class LoginFragment extends BaseFragment {
 
     @Override
     public void onBack() {
-        if (userType == SharedPreference.USER_TYPE_sell) {
+        if (userType == SharedPreference.USER_TYPE_SELL) {
 
             super.onBack();
         } else {
@@ -132,7 +132,7 @@ public class LoginFragment extends BaseFragment {
 
 
                 break;
-            case SharedPreference.USER_TYPE_sell:
+            case SharedPreference.USER_TYPE_SELL:
 
                 call = apiService.loginRestaurant(email, password);
                 callApiService(call);

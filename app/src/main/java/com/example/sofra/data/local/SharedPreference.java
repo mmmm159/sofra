@@ -9,7 +9,7 @@ public class SharedPreference {
     private static final String SHARED_PREF_TAG = "sofra";
     public static final String USER_TYPE_KEY = "userType";
     public static final int USER_TYPE_BUY = 1;
-    public static final int USER_TYPE_sell = 2;
+    public static final int USER_TYPE_SELL = 2;
     public static final String API_TOKEN_KEY = "apiToken";
 
 
@@ -27,7 +27,7 @@ public class SharedPreference {
 
     }
 
-    public static void saveData(Activity activity , String key,String Value){
+    public static void saveData(Context activity , String key,String Value){
 
         setSharedPreference(activity);
 
@@ -40,7 +40,7 @@ public class SharedPreference {
 
 
     }
-    public static void saveData(Activity activity , String key,int Value){
+    public static void saveData(Context activity , String key,int Value){
 
         setSharedPreference(activity);
 
@@ -53,7 +53,7 @@ public class SharedPreference {
 
 
     }
-    public static void saveData(Activity activity , String key,boolean Value){
+    public static void saveData(Context activity , String key,boolean Value){
 
         setSharedPreference(activity);
 
