@@ -15,7 +15,7 @@
     <string name="register_res_step_1_fragment_edt_txt_res_name">Restaurant Name</string>
     <string name="register_res_step_1_fragment_edt_txt_deliver_time">Delivery Time</string>
     <string name="register_res_step_1_fragment_edt_txt_confirm_password">Confirm Password</string>
-    <string name="register_res_step_1_fragment_edt_txt_min_amount_order">Min Amount to Order</string>
+    <string name="register_res_step_1_fragment_edt_txt_min_charge">Min Charge</string>
     <string name="register_res_step_1_fragment_edt_txt_delivery_charge">Delivery Charge</string>
     <string name="register_res_step_1_fragment_btn_continue">Continue</string>
     <string name="register_res_step_2_fragment_txt_view_contact_info">Contact Info</string>
@@ -95,6 +95,7 @@
     <string name="fragment_order_container_new_orders">New Orders</string>
     <string name="fragment_order_container_current_orders">Current Orders</string>
     <string name="fragment_order_container_previous_orders">Previous Orders</string>
+    <string name="default_response_sp_should_select_city_region">Should select City / Region</string>
 
 
 </resources>

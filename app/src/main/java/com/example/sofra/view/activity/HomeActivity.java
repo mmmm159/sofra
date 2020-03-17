@@ -1,5 +1,7 @@
 package com.example.sofra.view.activity;
 
+import android.app.Activity;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -14,10 +16,14 @@ import com.example.sofra.utils.Utils;
 import com.example.sofra.view.fragment.homecycle.client.HomeClientRestaurantDetailsMenuFragment;
 import com.example.sofra.view.fragment.homecycle.client.HomeClientRestaurantDetailsPagerFragment;
 import com.example.sofra.view.fragment.homecycle.general.OrdersContainerFragment;
+import com.example.sofra.view.fragment.homecycle.general.ProfileFragment;
 import com.example.sofra.view.fragment.homecycle.restaurant.HomeRestaurantAddCategoryItemFragment;
 import com.example.sofra.view.fragment.homecycle.restaurant.HomeRestaurantFragment;
 import com.example.sofra.view.fragment.homecycle.general.OrderFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+
+import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEvent;
+import net.yslibrary.android.keyboardvisibilityevent.KeyboardVisibilityEventListener;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -83,7 +89,7 @@ public class HomeActivity extends BaseActivity {
                     return true;
                 case R.id.navigation_account:
                     Utils.replaceFragment(getSupportFragmentManager()
-                            , R.id.activity_home_frame, new OrderFragment());
+                            , R.id.activity_home_frame, new ProfileFragment());
 
                     return true;
                 case R.id.navigation_more:
@@ -102,6 +108,17 @@ public class HomeActivity extends BaseActivity {
         setContentView(R.layout.activity_home);
         ButterKnife.bind(this);
         BottomNavigationView navView = findViewById(R.id.activity_home_nav_view);
+
+        KeyboardVisibilityEvent.setEventListener(this, new KeyboardVisibilityEventListener() {
+            @Override
+            public void onVisibilityChanged(boolean isOpen) {
+                if (isOpen)
+                    navView.setVisibility(View.GONE);
+
+                else navView.setVisibility(View.VISIBLE);
+            }
+
+        });
 
         if (Utils.isUserRestaurant(this)){
             Utils.replaceFragment(getSupportFragmentManager()

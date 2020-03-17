@@ -150,10 +150,58 @@ public class LoginFragment extends BaseFragment {
                 try {
                     if (response.body().getStatus() == 1) {
 
-                        fragmentLoginProgressbar.setVisibility(View.GONE);
+                        if (response.body().getData()!=null) {
 
-                        SharedPreference.saveData(baseActivity, SharedPreference.API_TOKEN_KEY,
-                                response.body().getData().getApiToken());
+                            SharedPreference.saveData(baseActivity,SharedPreference.HAS_USER_DATA_SAVED_CORRECT_TAG,true);
+
+                            fragmentLoginProgressbar.setVisibility(View.GONE);
+
+                            SharedPreference.saveData(baseActivity, SharedPreference.API_TOKEN_KEY,
+                                    response.body().getData().getApiToken());
+
+                            SharedPreference.saveData(baseActivity, SharedPreference.IMG_URL_KEY,
+                                    response.body().getData().getUser().getPhotoUrl());
+
+                            SharedPreference.saveData(baseActivity, SharedPreference.NAME_KEY,
+                                    response.body().getData().getUser().getName());
+
+                            SharedPreference.saveData(baseActivity, SharedPreference.EMAIL_KEY,
+                                    response.body().getData().getUser().getEmail());
+
+                            SharedPreference.saveData(baseActivity, SharedPreference.PHONE_KEY,
+                                    response.body().getData().getUser().getPhone());
+
+                            SharedPreference.saveData(baseActivity, SharedPreference.CITY_ID_KEY,
+                                    response.body().getData().getUser().getRegion().getCity().getId());
+
+                            SharedPreference.saveData(baseActivity, SharedPreference.REGION_ID_KEY,
+                                    response.body().getData().getUser().getRegion().getId());
+
+
+
+                            if (SharedPreference.loadInt(baseActivity,SharedPreference.USER_TYPE_KEY)
+                                    ==SharedPreference.USER_TYPE_SELL) {
+
+                                SharedPreference.saveData(baseActivity, SharedPreference.DELIVERY_CHARGE_KEY,
+                                        response.body().getData().getUser().getDeliveryCost());
+
+                                SharedPreference.saveData(baseActivity, SharedPreference.DELIVERY_TIME_KEY,
+                                        response.body().getData().getUser().getDeliveryTime());
+
+                                SharedPreference.saveData(baseActivity, SharedPreference.MIN_CHARGE_KEY,
+                                        response.body().getData().getUser().getMinimumCharger());
+
+                                SharedPreference.saveData(baseActivity, SharedPreference.WHATSAPP_KEY,
+                                        response.body().getData().getUser().getWhatsapp());
+
+                                SharedPreference.saveData(baseActivity, SharedPreference.STATUS_KEY,
+                                        response.body().getData().getUser().getAvailability());
+
+                            }
+                        }
+
+
+
                         Toast.makeText(baseActivity, response.body().getMsg(), Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(baseActivity, HomeActivity.class));
 

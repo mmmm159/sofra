@@ -1,5 +1,7 @@
 package com.example.sofra.data.api;
 
+import androidx.annotation.Nullable;
+
 import com.example.sofra.data.model.general.auth.Auth;
 import com.example.sofra.data.model.client.category.Category;
 import com.example.sofra.data.model.restaurant.categorywithpagination.CategoryWithPagination;
@@ -199,6 +201,35 @@ public interface ApiService {
     Call<OrderRestaurant> getClientAllOrders(@Query("api_token") String apiToken,
                                        @Query("state") String state, // can be either for current or completed
                                        @Query("page") int page);
+
+
+    @POST("restaurant/profile")
+    @Multipart
+    Call<Auth> editProfileRestaurant(@Part("email")RequestBody email,
+                                      @Part("name")RequestBody name,
+                                     @Part("phone") RequestBody phone,
+                                     @Part("region_id") RequestBody regionId,
+                                     @Part("delivery_cost") RequestBody deliveryCost,
+                                     @Part("minimum_charger") RequestBody minimumCharger,
+                                     @Part("availability") RequestBody availability,
+                                    @Nullable @Part MultipartBody.Part file,
+                                     @Part("api_token")RequestBody apiToken,
+                                     @Part("whatsapp") RequestBody whatsApp,
+                                     @Part("delivery_time") RequestBody deliveryTime);
+
+    @POST("client/profile")
+    @Multipart
+    Call<Auth> editProfileClient(@Part("api_token")RequestBody apiToken,
+                                 @Part("name")RequestBody name,
+                                 @Part("phone") RequestBody phone,
+                                 @Part("email")RequestBody email,
+                                 @Part("region_id") RequestBody regionId,
+                                 @Part MultipartBody.Part file);
+
+
+
+
+
 
 
 

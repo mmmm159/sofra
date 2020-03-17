@@ -58,7 +58,7 @@
         <item name="android:paddingStart">@dimen/_10sdp</item>
         <item name="android:paddingEnd">@dimen/_10sdp</item>
         <item name="android:textColor">@color/magenta</item>
-        <item name="android:textSize">@dimen/txt_edt_txt_12</item>
+        <item name="android:textSize">@dimen/txt_12</item>
         <item name="android:background">@drawable/background_reset_password_edt_txt</item>
         <item name="android:layout_marginStart">@dimen/dim_edt_txt_login_margin_20</item>
         <item name="android:layout_marginEnd">@dimen/dim_edt_txt_login_margin_20</item>
@@ -97,7 +97,7 @@
     <style name="txtViewBlackTopRestaurantCycle">
 
         <item name="android:textColor">@color/black</item>
-        <item name="android:textSize">@dimen/txt_txt_view_15</item>
+        <item name="android:textSize">@dimen/txt_15</item>
         <item name="android:textStyle">bold</item>
 
     </style>
@@ -107,14 +107,14 @@
         <item name="android:paddingStart">@dimen/_15sdp</item>
         <item name="android:paddingEnd">@dimen/_15sdp</item>
         <item name="android:textColor">@color/lightMagenta</item>
-        <item name="android:textSize">@dimen/txt_edt_txt_12</item>
+        <item name="android:textSize">@dimen/txt_12</item>
         <item name="android:background">@drawable/background_restaurant_add_cat_item_edttxt_white_shadow_rad_50</item>
         <item name="android:layout_marginStart">@dimen/dim_edt_txt_login_margin_20</item>
         <item name="android:layout_marginEnd">@dimen/dim_edt_txt_login_margin_20</item>
     </style>
 
 
-    <style name="txtViewDarkBlueOrder">
+    <style name="txtViewDarkBlueOrder16">
 
         <item name="android:textColor">@color/darkBlue</item>
         <item name="android:textSize">@dimen/txt_txt_view_16</item>
@@ -135,7 +135,7 @@
     <style name="txtViewToastBlack15">
 
         <item name="android:textColor">@color/black</item>
-        <item name="android:textSize">@dimen/txt_txt_view_15</item>
+        <item name="android:textSize">@dimen/txt_15</item>
 
     </style>
 
@@ -152,6 +152,32 @@
         <item name="android:textSize">16sp</item>
         <item name="android:textStyle">bold</item>
     </style>
+
+    <style name="edtTxtGrey0shadow30">
+        <item name="android:paddingStart">@dimen/_10sdp</item>
+        <item name="android:paddingEnd">@dimen/_10sdp</item>
+        <item name="android:textColor">@color/darkBlue</item>
+        <item name="android:textSize">@dimen/txt_15</item>
+        <item name="android:background">@drawable/background_grey_ccc_shadow_rad30</item>
+
+    </style>
+
+
+    <style name="txtViewDarkBlue18">
+
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/txt_18</item>
+
+    </style>
+
+    <style name="txtViewDarkBlue16Bold">
+
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textSize">@dimen/txt_txt_view_16</item>
+        <item name="android:textStyle">bold</item>
+
+    </style>
+
 
 
 </resources>

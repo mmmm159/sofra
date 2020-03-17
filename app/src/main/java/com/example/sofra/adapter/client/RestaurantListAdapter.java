@@ -111,7 +111,7 @@ public class RestaurantListAdapter extends RecyclerView.Adapter<RestaurantListAd
                 holder.itemRecyclerHomeClientTxtViewResStatus.setText(context.getString(
                         R.string.item_recycler_home_client_txt_view_res_status_closed));
                 holder.itemRecyclerHomeClientTxtViewResStatus
-                        .setTextColor(context.getResources().getColor(R.color.grey));
+                        .setTextColor(context.getResources().getColor(R.color.grey1));
                 holder.itemRecyclerHomeClientCircleResStatus.setImageResource(R.drawable.shape_circle_grey);
             }
         }

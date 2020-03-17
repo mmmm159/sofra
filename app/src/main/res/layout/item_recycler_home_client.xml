@@ -69,7 +69,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/item_recycler_home_client_txt_view_min_charge"
-        android:textColor="@color/grey"
+        android:textColor="@color/grey1"
         android:textSize="@dimen/txt_edt_txt_10"
         app:layout_constraintBottom_toTopOf="@id/item_recycler_home_client_txt_view_deliver_cost"
         app:layout_constraintStart_toStartOf="@id/item_recycler_home_client_txt_view_res_name"
@@ -80,7 +80,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/item_recycler_home_client_txt_view_deliver_cost"
-        android:textColor="@color/grey"
+        android:textColor="@color/grey1"
         android:textSize="@dimen/txt_edt_txt_10"
         app:layout_constraintStart_toStartOf="@id/item_recycler_home_client_txt_view_res_name"
         app:layout_constraintTop_toBottomOf="@id/item_recycler_home_client_txt_view_min_charge" />
@@ -91,7 +91,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_5sdp"
         android:text="50"
-        android:textColor="@color/grey"
+        android:textColor="@color/grey1"
         android:textSize="@dimen/txt_edt_txt_10"
         app:layout_constraintStart_toEndOf="@id/item_recycler_home_client_txt_view_min_charge"
         app:layout_constraintTop_toTopOf="@id/item_recycler_home_client_txt_view_min_charge" />
@@ -102,7 +102,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/_5sdp"
         android:text="50"
-        android:textColor="@color/grey"
+        android:textColor="@color/grey1"
         android:textSize="@dimen/txt_edt_txt_10"
         app:layout_constraintStart_toEndOf="@id/item_recycler_home_client_txt_view_deliver_cost"
         app:layout_constraintTop_toTopOf="@id/item_recycler_home_client_txt_view_deliver_cost" />

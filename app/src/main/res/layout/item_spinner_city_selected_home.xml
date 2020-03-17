@@ -2,7 +2,7 @@
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:id="@+id/item_spinner_txt_view"
+    android:id="@+id/item_spinner_city_dropdown_txt_view"
     android:text="Mansoura"
     android:textColor="@color/lightMagenta"
     android:textSize="@dimen/txt_edt_txt_10"

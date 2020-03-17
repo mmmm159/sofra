@@ -11,7 +11,8 @@
     <color name="lightMagenta">#EC3554</color>
     <color name="lightMagentaLowOpacity">#B2EC3554</color>
 
-    <color name="grey">#888888</color>
+    <color name="grey1">#888888</color>
+
     <color name="magenta">#A50C4A</color>
     <color name="magentaLowOpacity">#B2A50C4A</color>
     <color name="grey_ccc">#cccccc</color>

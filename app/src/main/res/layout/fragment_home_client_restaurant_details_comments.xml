@@ -37,7 +37,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:layout_marginTop="@dimen/dim_margin_vertical_10"
         android:textColor="@color/black"
-        android:textSize="@dimen/txt_txt_view_15"/>
+        android:textSize="@dimen/txt_15"/>
     <Button
         android:id="@+id/fragment_home_client_restaurant_details_comments_btn_add_comment"
         android:layout_width="match_parent"

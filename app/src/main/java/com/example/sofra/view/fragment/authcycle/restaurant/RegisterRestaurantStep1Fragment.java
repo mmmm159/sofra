@@ -29,7 +29,7 @@ import butterknife.OnClick;
 import retrofit2.Call;
 
 
-public class RegisterRestaurantStep1Fragment extends BaseFragment implements AdapterView.OnItemSelectedListener {
+public class RegisterRestaurantStep1Fragment extends BaseFragment {
 
 
     @BindView(R.id.fragment_register_res_step_1_edt_txt_res_name)
@@ -70,8 +70,11 @@ public class RegisterRestaurantStep1Fragment extends BaseFragment implements Ada
     public static String confirmPassword;
     public static String minAmountToOrder;
     public static String deliveryCharge;
+
     private int itemSelectedResId;
     private int dropDownResId;
+    private AdapterView.OnItemSelectedListener spinnerItemSelectaction;
+
 
 
     public RegisterRestaurantStep1Fragment() {
@@ -98,6 +101,7 @@ public class RegisterRestaurantStep1Fragment extends BaseFragment implements Ada
         fragmentRegisterResStep1EdtTxtDeliveryCharge.setText("10");
 
 
+
         return view;
     }
 
@@ -117,6 +121,25 @@ public class RegisterRestaurantStep1Fragment extends BaseFragment implements Ada
         if (fragmentRegisterResStep1EdtTxtDeliveryCharge.getText() != null)
             deliveryCharge = fragmentRegisterResStep1EdtTxtDeliveryCharge.getText().toString();
 
+        if (fragmentRegisterResStep1SpinnerCity.getSelectedItemPosition()==0 ||
+                fragmentRegisterResStep1SpinnerNeighbourhood.getSelectedItemPosition()==0) {
+
+            Utils.customToast(baseActivity,baseActivity.getString(R.string.default_response_sp_should_select_city_region)
+            ,true);
+        }
+        else {
+
+            if (citySpinnerAdapter.cityDataList.size()!=0&&regionSpinnerAdapter.cityDataList.size()!=0){
+
+                cityId = (int)citySpinnerAdapter.getItemId(fragmentRegisterResStep1SpinnerCity.getSelectedItemPosition());
+                regionId = (int)regionSpinnerAdapter.getItemId(fragmentRegisterResStep1SpinnerNeighbourhood.getSelectedItemPosition());
+                Utils.replaceFragment(baseActivity.getSupportFragmentManager(), R.id.activity_auth_frame
+                        , new RegisterRestaurantStep2Fragment());
+            }
+
+
+        }
+
     }
 
     private void setSpinners() {
@@ -124,13 +147,35 @@ public class RegisterRestaurantStep1Fragment extends BaseFragment implements Ada
         itemSelectedResId = R.layout.item_spinner_city_selected;
         dropDownResId =R.layout.item_spinner_city_dropdown;
 
+        spinnerItemSelectaction = new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+
+                if (position != 0) {
+
+                    cityId = (int) citySpinnerAdapter.getItemId(position );
+                    Call<Region> regionCall = apiService.getRegions(cityId);
+                    regionSpinnerAdapter = new SpinnerAdapter(baseActivity);
+                    String regionHint = baseActivity.getString(R.string.spinner_region_def_region);
+                    GeneralSpinnerRequest.setSpinnerData(baseActivity, regionCall, fragmentRegisterResStep1SpinnerNeighbourhood,
+                            regionSpinnerAdapter, fragmentRegisterResStep1ConstraintRegion, regionHint,
+                            fragmentRegisterResStep1ProgressBar,itemSelectedResId,dropDownResId,0);
+                }
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        };
+
         Call<Region> cityCall = apiService.getCities();
         String cityHint = baseActivity.getString(R.string.spinner_city_def_city);
         citySpinnerAdapter = new SpinnerAdapter(baseActivity);
         GeneralSpinnerRequest.setSpinnerData(baseActivity, cityCall, fragmentRegisterResStep1SpinnerCity,
-                citySpinnerAdapter, cityHint, fragmentRegisterResStep1ProgressBar,itemSelectedResId,dropDownResId);
-        fragmentRegisterResStep1SpinnerCity.setOnItemSelectedListener(this);
-        fragmentRegisterResStep1SpinnerNeighbourhood.setOnItemSelectedListener(this);
+                citySpinnerAdapter, cityHint, fragmentRegisterResStep1ProgressBar,itemSelectedResId,dropDownResId,0,spinnerItemSelectaction);
+
     }
 
     @Override
@@ -145,39 +190,8 @@ public class RegisterRestaurantStep1Fragment extends BaseFragment implements Ada
     public void onViewClicked() {
 
         setStaticData();
-       Utils.replaceFragment(baseActivity.getSupportFragmentManager(), R.id.activity_auth_frame
-                , new RegisterRestaurantStep2Fragment());
+
 
     }
 
-    @Override
-    public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
-
-        switch (adapterView.getId()) {
-            case R.id.fragment_register_res_step_1_spinner_city:
-
-                if (position != 0) {
-                    fragmentRegisterResStep1ProgressBar.setVisibility(View.VISIBLE);
-                    cityId = (int) citySpinnerAdapter.getItemId(position - 1);
-                    Call<Region> regionCall = apiService.getRegions(cityId);
-                    regionSpinnerAdapter = new SpinnerAdapter(baseActivity);
-                    String regionHint = baseActivity.getString(R.string.spinner_region_def_region);
-                    GeneralSpinnerRequest.setSpinnerData(baseActivity, regionCall, fragmentRegisterResStep1SpinnerNeighbourhood,
-                            regionSpinnerAdapter, fragmentRegisterResStep1ConstraintRegion, regionHint,
-                            fragmentRegisterResStep1ProgressBar,itemSelectedResId,dropDownResId);
-                }
-                break;
-            case R.id.fragment_register_res_step_1_spinner_neighbourhood:
-                if (position != 0) {
-                    regionId = (int) regionSpinnerAdapter.getItemId(position - 1);
-                }
-                break;
-
-        }
-    }
-
-    @Override
-    public void onNothingSelected(AdapterView<?> adapterView) {
-
-    }
 }

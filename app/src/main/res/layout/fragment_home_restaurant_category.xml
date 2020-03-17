@@ -36,7 +36,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:text="Restaurant Name"
-        android:textSize="@dimen/txt_txt_view_15"
+        android:textSize="@dimen/txt_15"
         android:textColor="@color/lightMagenta"
         android:textStyle="bold"/>
 

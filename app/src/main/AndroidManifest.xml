@@ -15,7 +15,7 @@
         <activity
             android:name=".view.activity.HomeActivity"
             android:theme="@style/HomeActivityTheme"
-            android:windowSoftInputMode="adjustPan"/>
+            />
         <activity android:name=".view.activity.AuthActivity" />
         <activity android:name=".view.activity.SplashActivity">
             <intent-filter>

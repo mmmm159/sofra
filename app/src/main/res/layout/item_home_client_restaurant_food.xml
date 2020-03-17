@@ -61,7 +61,7 @@
                 android:layout_height="wrap_content"
                 android:text="Checken fries"
                 android:textColor="@color/magenta"
-                android:textSize="@dimen/txt_txt_view_15"
+                android:textSize="@dimen/txt_15"
                 app:layout_constraintBottom_toTopOf="@id/item_home_client_restaurant_food_txt_view_description"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
@@ -84,7 +84,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/item_home_client_restaurant_food_txt_view_price"
                 android:textColor="@color/black"
-                android:textSize="@dimen/txt_txt_view_15"
+                android:textSize="@dimen/txt_15"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/item_home_client_restaurant_food_txt_view_description" />
@@ -95,7 +95,7 @@
                 android:layout_height="wrap_content"
                 android:text="5000"
                 android:textColor="@color/black"
-                android:textSize="@dimen/txt_txt_view_15"
+                android:textSize="@dimen/txt_15"
                 app:layout_constraintStart_toEndOf="@id/item_home_client_restaurant_food_txt_view_price"
                 app:layout_constraintTop_toTopOf="@id/item_home_client_restaurant_food_txt_view_price" />
 
@@ -118,7 +118,7 @@
                 android:textColor="@color/black"
                 android:visibility="gone"
                 android:layout_marginStart="@dimen/dim_margin_horizontal_inside_10"
-                android:textSize="@dimen/txt_txt_view_15"
+                android:textSize="@dimen/txt_15"
                 app:layout_constraintStart_toEndOf="@id/item_home_client_restaurant_food_txt_view_price_value"
                 app:layout_constraintTop_toTopOf="@id/item_home_client_restaurant_food_txt_view_price_value"/>
 

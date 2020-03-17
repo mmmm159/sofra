@@ -89,7 +89,7 @@ public class HomeClientFragment extends BaseFragment {
         spinnerAdapter = new SpinnerAdapter(baseActivity);
 
         GeneralSpinnerRequest.setSpinnerData(baseActivity, cityCall, fragmentHomeClientSpinnerCity,
-                spinnerAdapter, hint, fragmentHomeClientProgressBar, itemSelectedResId, dropDownResId);
+                spinnerAdapter, hint, fragmentHomeClientProgressBar, itemSelectedResId, dropDownResId,0,null);
 
     }
 
@@ -179,7 +179,7 @@ public class HomeClientFragment extends BaseFragment {
 
             } else {
 
-                regionId = (int) spinnerAdapter.getItemId(spinnerPosition - 1);
+                regionId = (int) spinnerAdapter.getItemId(spinnerPosition );
                 Utils.showProgressBar(fragmentHomeClientRecycler,fragmentHomeClientTxtViewNoSearchResults,
                         fragmentHomeClientProgressBar);
 

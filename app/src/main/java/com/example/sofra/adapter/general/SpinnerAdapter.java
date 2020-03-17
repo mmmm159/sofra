@@ -16,29 +16,38 @@ import java.util.List;
 public class SpinnerAdapter extends BaseAdapter {
 
     private Context context;
-    private List<GeneralResponse> cityDataList;
-    public List<String> cityNamesList = new ArrayList<>();
+    public List<GeneralResponse> cityDataList;
+
 
 
     public SpinnerAdapter(Context context) {
         this.context = context;
+        this.cityDataList = new ArrayList<>();
         //this.cityDataList = cityDataList;
 
     }
 
     public void setCityNamesList(List<GeneralResponse> cityDataList,String hint) {
-
-        this.cityDataList = cityDataList;
-        cityNamesList.add(hint);
-        for (int i = 0; i <cityDataList.size(); i++) {
-            cityNamesList.add(this.cityDataList.get(i).getName());
+        this.cityDataList.add(new GeneralResponse(0,hint));
+        this.cityDataList.addAll(cityDataList);
         }
+
+    public int getPositionById(int id){
+
+        int position = 0;
+        for (int i=0;i<cityDataList.size();i++){
+
+            if (cityDataList.get(i).getId()==id)
+                position=i;
+        }
+
+        return position;
     }
 
 
     @Override
     public int getCount() {
-        return cityNamesList.size();
+        return cityDataList.size();
     }
 
     @Override
@@ -48,7 +57,11 @@ public class SpinnerAdapter extends BaseAdapter {
 
     @Override
     public long getItemId(int i) {
+
+
         return cityDataList.get(i).getId();
+
+
     }
 
 
@@ -56,9 +69,9 @@ public class SpinnerAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
 
-        view = LayoutInflater.from(context).inflate(R.layout.item_spinner_city_dropdown,viewGroup,false);
-        TextView textView = view.findViewById(R.id.item_spinner_txt_view);
-        textView.setText(cityNamesList.get(i));
+//        view = LayoutInflater.from(context).inflate(R.layout.item_spinner_city_dropdown,viewGroup,false);
+//        TextView textView = view.findViewById(R.id.item_spinner_city_dropdown_txt_view);
+//        textView.setText(cityNamesList.get(i));
         return view;
     }
 }

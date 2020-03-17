@@ -213,7 +213,7 @@
                     style="@style/txtInputEdtTxt"
                     android:inputType="number"
                     android:drawableStart="@drawable/ic_attach_money_white_24dp"
-                    android:hint="@string/register_res_step_1_fragment_edt_txt_min_amount_order" />
+                    android:hint="@string/register_res_step_1_fragment_edt_txt_min_charge" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
