@@ -55,13 +55,13 @@
     <string name="home_client_restaurant_details_store_info_fragment_txt_view_min_charge">Min Charge</string>
     <string name="home_client_restaurant_details_store_info_fragment_txt_view_delivery_cost">Deliver Cost</string>
     <string name="item_home_client_restaurant_food_txt_view_price">Price :</string>
-    <string name="default_response_no_data_for_this_category">No Data  For This Category</string>
+    <string name="default_response_no_data_for_this_category">No Data  For This Category Click + to Add</string>
     <string name="default_response_no_comments_yet">No Comments Posted Yet</string>
     <string name="home_client_restaurant_details_pager_tab_txt_food_menu">Food Menu</string>
     <string name="home_client_restaurant_details_pager_tab_txt_comments_rate">Comments and Rate</string>
     <string name="home_client_restaurant_details_pager_tab_txt_store_info">Store Info</string>
     <string name="home_restaurant_fragment_txt_view_top">My Categories</string>
-    <string name="default_response_something_wrong_happened_please_refresh">Something Wrong Happened Please Try Refreash</string>
+
     <string name="dialog_category_edt_txt_hint_category_name">Category Name</string>
     <string name="dialog_restaurant_category_btn_modify">Modify</string>
     <string name="dialog_restaurant_category_top_txt_view_modify_category">Modify Category</string>

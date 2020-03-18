@@ -38,7 +38,7 @@
         android:layout_width="match_parent"
 
         android:layout_height="@dimen/_90sdp"
-        android:background="@drawable/background_item_restaurant_categories_white_w_shadow">
+        android:background="@drawable/background_item_restaurant_categories_white_w_shadow_30">
 
         <androidx.cardview.widget.CardView
             android:id="@+id/item_restaurant_category_item_card_view_img_container"

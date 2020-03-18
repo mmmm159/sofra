@@ -67,4 +67,5 @@
     <dimen name="dim_180">@dimen/_180sdp</dimen>
     <dimen name="dim_icon_13">@dimen/_13sdp</dimen>
     <dimen name="dim_icon_20">@dimen/_20sdp</dimen>
+    <dimen name="dim_height_90">@dimen/_90sdp</dimen>
 </resources>

@@ -45,27 +45,13 @@ public class Utils {
     }
 
 
-    public static void showContainer(View view, TextView textView, ProgressBar progressBar) {
-        progressBar.setVisibility(View.GONE);
-        view.setVisibility(View.VISIBLE);
-        textView.setVisibility(View.GONE);
+    public static void showProgressBar(@Nullable View viewToHide1, @Nullable View viewToHide2, ProgressBar progressBar) {
 
-    }
+        if (viewToHide2 != null)
+            viewToHide2.setVisibility(View.GONE);
 
-    public static void showErrorText(View view, TextView textView, ProgressBar progressBar) {
-        view.setVisibility(View.GONE);
-        textView.setVisibility(View.VISIBLE);
-        progressBar.setVisibility(View.GONE);
-
-    }
-
-    public static void showProgressBar(@Nullable View view, @Nullable TextView textView, ProgressBar progressBar) {
-
-        if (textView != null)
-            textView.setVisibility(View.GONE);
-
-        if (view != null)
-            view.setVisibility(View.GONE);
+        if (viewToHide1 != null)
+            viewToHide1.setVisibility(View.GONE);
 
         progressBar.setVisibility(View.VISIBLE);
 
@@ -94,75 +80,6 @@ public class Utils {
         return userType == SharedPreference.USER_TYPE_SELL;
     }
 
-    public static Dialog dialog(Context activity, int resId
-            , Boolean isActionDone, FragmentManager manager, Integer fragResId,
-                                Fragment fragment) {
-        Dialog dialog = new Dialog(activity);
-        dialog.setContentView(resId);
-
-        WindowManager.LayoutParams lp = new WindowManager.LayoutParams();
-        lp.copyFrom(dialog.getWindow().getAttributes());
-        lp.width = WindowManager.LayoutParams.MATCH_PARENT;
-        lp.height = WindowManager.LayoutParams.WRAP_CONTENT;
-        lp.gravity = Gravity.CENTER;
-
-        HomeActivity homeActivity = (HomeActivity) activity;
-        homeActivity.getActivityBottomNav().setVisibility(View.GONE);
-
-        dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialog) {
-
-                homeActivity.getActivityBottomNav().setVisibility(View.VISIBLE);
-
-                if (isActionDone)
-                    Utils.replaceFragment(manager, fragResId, fragment);
-            }
-        });
-
-
-        dialog.setCancelable(true);
-        dialog.show();
-        return dialog;
-    }
-
-
-    public static AlertDialog alertDialog(Context context, String msg,
-                                          boolean isSomethingHappened
-            , FragmentManager manager, int fragResId, Fragment fragment) {
-
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(context);
-
-        alertDialogBuilder.setTitle(msg);
-
-
-        alertDialogBuilder.setCancelable(true);
-
-        HomeActivity homeActivity = (HomeActivity) context;
-        homeActivity.getActivityBottomNav().setVisibility(View.GONE);
-
-        alertDialogBuilder.setOnDismissListener(new DialogInterface.OnDismissListener() {
-            @Override
-            public void onDismiss(DialogInterface dialog) {
-
-
-                homeActivity.getActivityBottomNav().setVisibility(View.VISIBLE);
-
-                if (isSomethingHappened)
-                    Utils.replaceFragment(manager, fragResId, fragment);
-            }
-        });
-
-        AlertDialog alertDialog = alertDialogBuilder.create();
-
-        alertDialog.show();
-
-        return alertDialog;
-    }
-
-
-    public static String path;
-
     public static void selectImage(Context activity,
                                    Action<ArrayList<AlbumFile>> action) {
 
@@ -187,21 +104,9 @@ public class Utils {
     }
 
 
-    private static ProgressDialog checkDialog;
 
-    public static void showProgressDialog(Context activity, String title) {
-        checkDialog = new ProgressDialog(activity);
-        checkDialog.setMessage(title);
-        checkDialog.setIndeterminate(false);
-        checkDialog.setCancelable(false);
 
-        checkDialog.show();
-    }
 
-    public static void dismissProgressDialog() {
-
-        checkDialog.dismiss();
-    }
 
     public static RequestBody convertToRequestBody(String part) {
         try {

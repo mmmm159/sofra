@@ -17,6 +17,7 @@ import com.example.sofra.R;
 import com.example.sofra.data.api.ApiService;
 import com.example.sofra.data.api.RetrofitClient;
 import com.example.sofra.data.model.general.auth.Auth;
+import com.example.sofra.utils.ConstantVars;
 import com.example.sofra.utils.Utils;
 import com.example.sofra.view.fragment.BaseFragment;
 import com.google.android.material.textfield.TextInputEditText;
@@ -95,7 +96,7 @@ public class RegisterRestaurantStep2Fragment extends BaseFragment {
 
     private void sendData() {
 
-        MultipartBody.Part file = Utils.convertFileToMultipart(path, "photo");
+        MultipartBody.Part file = Utils.convertFileToMultipart(path, ConstantVars.PHOTO_MULTIPART_TAG);
         RequestBody restaurantName = RequestBody.create(MediaType.parse("text/plain"), RegisterRestaurantStep1Fragment.restaurantName);
         RequestBody email = RequestBody.create(MediaType.parse("text/plain"), RegisterRestaurantStep1Fragment.email);
         RequestBody deliveryTime = RequestBody.create(MediaType.parse("text/plain"), RegisterRestaurantStep1Fragment.deliverTime);

@@ -1,7 +1,9 @@
 package com.example.sofra.adapter.restaurant;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -25,7 +28,11 @@ import com.example.sofra.data.api.RetrofitClient;
 import com.example.sofra.data.local.SharedPreference;
 import com.example.sofra.data.model.general.itemrestaurant.ItemRestaurantData;
 import com.example.sofra.data.model.restaurant.editcategory.EditCategory;
+import com.example.sofra.utils.ConstantVars;
+import com.example.sofra.utils.DialogUtils;
 import com.example.sofra.utils.Utils;
+import com.example.sofra.view.activity.BaseActivity;
+import com.example.sofra.view.activity.HomeActivity;
 import com.example.sofra.view.fragment.homecycle.restaurant.HomeRestaurantCategoryFragment;
 import com.example.sofra.view.fragment.homecycle.restaurant.HomeRestaurantFragment;
 import com.yanzhenjie.album.Action;
@@ -48,6 +55,7 @@ public class RestaurantCategoriesAdapter extends RecyclerView.Adapter<Restaurant
 
 
     private Context context;
+    private Activity activity;
     private List<ItemRestaurantData> categoriesList;
     private FragmentManager fragmentManager;
 
@@ -55,13 +63,13 @@ public class RestaurantCategoriesAdapter extends RecyclerView.Adapter<Restaurant
 
     public RestaurantCategoriesAdapter(Context context) {
         this.context = context;
+        this.activity= (Activity) context;
     }
 
     public void setData(List<ItemRestaurantData> categoriesList,
-                        FragmentManager fragmentManager , ProgressBar progressBar) {
+                        FragmentManager fragmentManager ) {
         this.categoriesList = categoriesList;
         this.fragmentManager = fragmentManager;
-
 
     }
 
@@ -118,6 +126,9 @@ public class RestaurantCategoriesAdapter extends RecyclerView.Adapter<Restaurant
         private boolean isCategoryEdited;
         private String path;
 
+        private Dialog editDialog;
+        private DialogInterface.OnDismissListener action;
+
         public RestaurantCategoryViewHolder(@NonNull View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
@@ -132,22 +143,22 @@ public class RestaurantCategoriesAdapter extends RecyclerView.Adapter<Restaurant
             switch (view.getId()) {
                 case R.id.item_restaurant_category_img_btn_delete:
 
-
-                    Utils.showProgressDialog(context,context.getString(R.string.default_progress_dialog_msg_deleting));
+                    DialogUtils.showProgressDialog(context,context.getString(R.string.default_progress_dialog_msg_deleting));
                     apiService.deleteCategory(SharedPreference.loadString(context, SharedPreference.API_TOKEN_KEY),
                             categoryData.getId()).enqueue(new Callback<EditCategory>() {
                         @Override
                         public void onResponse(Call<EditCategory> call, Response<EditCategory> response) {
                             try {
                                 if (response.body().getStatus() == 1) {
-                                    Utils.dismissProgressDialog();
-                                    Toast.makeText(context, response.body().getMsg(), Toast.LENGTH_SHORT).show();
+                                    DialogUtils.dismissProgressDialog();
+                                    Utils.customToast(activity,response.body().getMsg(),false);
                                    Utils.replaceFragment(fragmentManager,R.id.activity_home_frame,
                                            new HomeRestaurantFragment());
 
 
                                 } else {
-                                    Toast.makeText(context, response.body().getMsg(), Toast.LENGTH_SHORT).show();
+                                    DialogUtils.dismissProgressDialog();
+                                   Utils.customToast(activity,response.body().getMsg(),true);
                                 }
                             } catch (Exception e) {
                                 e.printStackTrace();
@@ -157,18 +168,26 @@ public class RestaurantCategoriesAdapter extends RecyclerView.Adapter<Restaurant
                         @Override
                         public void onFailure(Call<EditCategory> call, Throwable t) {
 
-                            Toast.makeText(context,
-                                    context.getText(R.string.default_response_no_internet_connection),
-                                    Toast.LENGTH_SHORT).show();
+                            DialogUtils.dismissProgressDialog();
+                           Utils.customToast(activity,context.getString(R.string.default_response_no_internet_connection)
+                           ,true);
                         }
                     });
 
                     break;
                 case R.id.item_restaurant_category_img_btn_edit:
 
-                    Dialog editDialog = Utils.dialog(context, R.layout.dialog_category_restaurant
-                    ,isCategoryEdited,fragmentManager,R.id.activity_home_frame,
-                            new HomeRestaurantFragment());
+                    action = new DialogInterface.OnDismissListener() {
+                        @Override
+                        public void onDismiss(DialogInterface dialog) {
+
+                            HomeActivity homeActivity = (HomeActivity) context;
+                            homeActivity.getActivityBottomNav().setVisibility(View.VISIBLE);
+                            Utils.replaceFragment(fragmentManager,R.id.activity_home_frame,
+                                    new HomeRestaurantFragment());
+                        }
+                    };
+                     editDialog = DialogUtils.dialog(context, R.layout.dialog_category_restaurant);
 
                     dialogBtn = editDialog.findViewById(R.id.dialog_category_restaurant_btn);
                     dialogConstraintContainer = editDialog.findViewById(R.id.dialog_category_restaurant_constraint_container);
@@ -215,7 +234,7 @@ public class RestaurantCategoriesAdapter extends RecyclerView.Adapter<Restaurant
                     break;
                 case R.id.dialog_category_restaurant_btn:
                     RequestBody name = RequestBody.create(MediaType.parse("text/plain"), dialogEdtTxt.getText().toString());
-                    MultipartBody.Part file = Utils.convertFileToMultipart(path, "photo");
+                    MultipartBody.Part file = Utils.convertFileToMultipart(path, ConstantVars.PHOTO_MULTIPART_TAG);
 
                     RequestBody apiToken = RequestBody.create(MediaType.parse("text/plain"),
                             SharedPreference.loadString(context, SharedPreference.API_TOKEN_KEY));
@@ -230,12 +249,12 @@ public class RestaurantCategoriesAdapter extends RecyclerView.Adapter<Restaurant
                                 if (response.body().getStatus() == 1) {
 
                                     dialogErrorTxtView.setText(response.body().getMsg());
-                                    Utils.showErrorText(dialogConstraintContainer, dialogErrorTxtView, dialogProgressbar);
-                                    isCategoryEdited = true;
+                                    DialogUtils.showTextDialog(dialogConstraintContainer, dialogErrorTxtView, dialogProgressbar);
+                                    editDialog.setOnDismissListener(action);
 
                                 } else {
-                                    Utils.showContainer(dialogConstraintContainer, dialogErrorTxtView, dialogProgressbar);
-                                    Toast.makeText(context, response.body().getMsg(), Toast.LENGTH_SHORT).show();
+                                    DialogUtils.showContainerDialog(dialogConstraintContainer, dialogErrorTxtView, dialogProgressbar);
+                                    Utils.customToast(activity,response.body().getMsg(),true);
 
                                 }
                             } catch (Exception e) {
@@ -246,10 +265,9 @@ public class RestaurantCategoriesAdapter extends RecyclerView.Adapter<Restaurant
                         @Override
                         public void onFailure(Call<EditCategory> call, Throwable t) {
 
-                            Utils.showContainer(dialogConstraintContainer, dialogErrorTxtView, dialogProgressbar);
-                            Toast.makeText(context,
-                                    context.getText(R.string.default_response_no_internet_connection),
-                                    Toast.LENGTH_SHORT).show();
+                            DialogUtils.showContainerDialog(dialogConstraintContainer, dialogErrorTxtView, dialogProgressbar);
+                            Utils.customToast(activity,context.getString(R.string.default_response_something_wrong_happened_please_try_again)
+                            ,true);
 
                         }
                     });

@@ -21,6 +21,7 @@ import com.example.sofra.data.api.RetrofitClient;
 import com.example.sofra.data.local.SharedPreference;
 import com.example.sofra.data.model.general.itemrestaurant.ItemRestaurantData;
 import com.example.sofra.data.model.restaurant.updateitem.UpdateItem;
+import com.example.sofra.utils.DialogUtils;
 import com.example.sofra.utils.Utils;
 import com.example.sofra.view.fragment.homecycle.restaurant.HomeRestaurantAddCategoryItemFragment;
 import com.example.sofra.view.fragment.homecycle.restaurant.HomeRestaurantCategoryFragment;
@@ -114,7 +115,7 @@ public class RestaurantCategoryItemAdapter extends RecyclerView.Adapter<Restaura
             categoryItemData = categoryItemDataList.get(getAdapterPosition());
             switch (view.getId()) {
                 case R.id.item_restaurant_category_item_btn_delete:
-                    Utils.showProgressDialog(context,context.getString(R.string.default_progress_dialog_msg_deleting));
+                    DialogUtils.showProgressDialog(context,context.getString(R.string.default_progress_dialog_msg_deleting));
                     apiService.deleteItem(categoryItemData.getId(), SharedPreference.loadString(context
                     ,SharedPreference.API_TOKEN_KEY)).enqueue(new Callback<UpdateItem>() {
                         @Override
@@ -122,23 +123,23 @@ public class RestaurantCategoryItemAdapter extends RecyclerView.Adapter<Restaura
                             try {
                                 if (response.body().getStatus()==1){
 
-                                    Utils.dismissProgressDialog();
+                                    DialogUtils.dismissProgressDialog();
                                     Utils.replaceFragment(manager,R.id.activity_home_frame,
                                             new HomeRestaurantCategoryFragment());
                                 }
                                 else {
-                                    Utils.dismissProgressDialog();
+                                    DialogUtils.dismissProgressDialog();
                                     Toast.makeText(context, response.body().getMsg(), Toast.LENGTH_SHORT).show();
                                 }
                             } catch (Exception e) {
-                                Utils.dismissProgressDialog();
+                                DialogUtils.dismissProgressDialog();
                             }
                         }
 
                         @Override
                         public void onFailure(Call<UpdateItem> call, Throwable t) {
 
-                            Utils.dismissProgressDialog();
+                            DialogUtils.dismissProgressDialog();
                             Toast.makeText(context,
                                     context.getString(R.string.default_response_no_internet_connection),
                                     Toast.LENGTH_SHORT).show();

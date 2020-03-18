@@ -14,6 +14,7 @@ import com.example.sofra.R;
 import com.example.sofra.data.api.ApiService;
 import com.example.sofra.data.api.RetrofitClient;
 import com.example.sofra.data.model.client.onerestaurant.OneRestaurant;
+import com.example.sofra.utils.DialogUtils;
 import com.example.sofra.utils.Utils;
 import com.example.sofra.view.fragment.BaseFragment;
 
@@ -74,7 +75,7 @@ public class HomeClientRestaurantDetailsStoreInfoFragment extends BaseFragment {
                     if (response.body().getStatus()==1) {
                         if (response.body().getData()!=null){
 
-                            Utils.showContainer(fragmentHomeClientRestaurantDetailsStoreInfoConstraintContainer
+                            DialogUtils.showContainerDialog(fragmentHomeClientRestaurantDetailsStoreInfoConstraintContainer
                                     ,fragmentHomeClientRestaurantDetailsStoreInfoTxtViewNetworkError
                                     ,fragmentHomeClientRestaurantDetailsStoreInfoProgressBar);
 
@@ -93,7 +94,7 @@ public class HomeClientRestaurantDetailsStoreInfoFragment extends BaseFragment {
                             fragmentHomeClientRestaurantDetailsStoreInfoTxtViewNetworkError
                                     .setText(baseActivity.getString(R.string.default_response_no_internet_connection));
 
-                            Utils.showErrorText(fragmentHomeClientRestaurantDetailsStoreInfoConstraintContainer
+                            DialogUtils.showTextDialog(fragmentHomeClientRestaurantDetailsStoreInfoConstraintContainer
                                     ,fragmentHomeClientRestaurantDetailsStoreInfoTxtViewNetworkError
                                     ,fragmentHomeClientRestaurantDetailsStoreInfoProgressBar);
 
@@ -104,7 +105,7 @@ public class HomeClientRestaurantDetailsStoreInfoFragment extends BaseFragment {
                         fragmentHomeClientRestaurantDetailsStoreInfoTxtViewNetworkError
                                 .setText(response.body().getMsg());
 
-                        Utils.showErrorText(fragmentHomeClientRestaurantDetailsStoreInfoConstraintContainer
+                        DialogUtils.showTextDialog(fragmentHomeClientRestaurantDetailsStoreInfoConstraintContainer
                                 ,fragmentHomeClientRestaurantDetailsStoreInfoTxtViewNetworkError
                                 ,fragmentHomeClientRestaurantDetailsStoreInfoProgressBar);
                     }
@@ -121,7 +122,7 @@ public class HomeClientRestaurantDetailsStoreInfoFragment extends BaseFragment {
                 fragmentHomeClientRestaurantDetailsStoreInfoTxtViewNetworkError
                         .setText(baseActivity.getString(R.string.default_response_no_internet_connection));
 
-                Utils.showErrorText(fragmentHomeClientRestaurantDetailsStoreInfoConstraintContainer
+                DialogUtils.showTextDialog(fragmentHomeClientRestaurantDetailsStoreInfoConstraintContainer
                         ,fragmentHomeClientRestaurantDetailsStoreInfoTxtViewNetworkError
                         ,fragmentHomeClientRestaurantDetailsStoreInfoProgressBar);
 

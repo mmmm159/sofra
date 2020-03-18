@@ -23,6 +23,7 @@ import com.example.sofra.data.api.RetrofitClient;
 import com.example.sofra.data.model.general.auth.User;
 import com.example.sofra.data.model.general.region.Region;
 import com.example.sofra.data.model.client.restaurant.Restaurant;
+import com.example.sofra.utils.DialogUtils;
 import com.example.sofra.utils.GeneralSpinnerRequest;
 import com.example.sofra.utils.OnEndLess;
 import com.example.sofra.utils.Utils;
@@ -123,7 +124,7 @@ public class HomeClientFragment extends BaseFragment {
                 try {
                     if (response.body().getStatus() == 1) {
 
-                        Utils.showContainer(fragmentHomeClientRecycler,fragmentHomeClientTxtViewNoSearchResults,
+                        DialogUtils.showContainerDialog(fragmentHomeClientRecycler,fragmentHomeClientTxtViewNoSearchResults,
                                 fragmentHomeClientProgressBar);
                         restaurantDataList.addAll(response.body().getData().getData());
                         restaurantListAdapter.notifyDataSetChanged();
@@ -134,7 +135,7 @@ public class HomeClientFragment extends BaseFragment {
                 } catch (Exception e) {
                     fragmentHomeClientTxtViewNoSearchResults.setText(
                             baseActivity.getString(R.string.default_response_no_internet_connection));
-                    Utils.showErrorText(fragmentHomeClientRecycler,fragmentHomeClientTxtViewNoSearchResults,
+                    DialogUtils.showTextDialog(fragmentHomeClientRecycler,fragmentHomeClientTxtViewNoSearchResults,
                             fragmentHomeClientProgressBar);
                 }
             }
@@ -144,7 +145,7 @@ public class HomeClientFragment extends BaseFragment {
 
                 fragmentHomeClientTxtViewNoSearchResults.setText(
                         baseActivity.getString(R.string.default_response_no_internet_connection));
-                Utils.showErrorText(fragmentHomeClientRecycler,fragmentHomeClientTxtViewNoSearchResults,
+                DialogUtils.showTextDialog(fragmentHomeClientRecycler,fragmentHomeClientTxtViewNoSearchResults,
                         fragmentHomeClientProgressBar);
 
             }
@@ -174,7 +175,7 @@ public class HomeClientFragment extends BaseFragment {
                 Utils.showProgressBar(fragmentHomeClientRecycler,fragmentHomeClientTxtViewNoSearchResults,
                         fragmentHomeClientProgressBar);
                 fragmentHomeClientTxtViewNoSearchResults.setText(baseActivity.getString(R.string.catch_should_select_city));
-                Utils.showErrorText(fragmentHomeClientRecycler,fragmentHomeClientTxtViewNoSearchResults,
+                DialogUtils.showTextDialog(fragmentHomeClientRecycler,fragmentHomeClientTxtViewNoSearchResults,
                         fragmentHomeClientProgressBar);
 
             } else {
@@ -191,7 +192,7 @@ public class HomeClientFragment extends BaseFragment {
                             if (response.body().getStatus() == 1) {
 
 
-                                Utils.showContainer(fragmentHomeClientRecycler,fragmentHomeClientTxtViewNoSearchResults,
+                                DialogUtils.showContainerDialog(fragmentHomeClientRecycler,fragmentHomeClientTxtViewNoSearchResults,
                                         fragmentHomeClientProgressBar);
                                 restaurantDataListWithFilter = response.body().getData().getData();
                                 RestaurantListAdapter restaurantListAdapterWithFilter =
@@ -202,7 +203,7 @@ public class HomeClientFragment extends BaseFragment {
                             } else {
 
                                 fragmentHomeClientTxtViewNoSearchResults.setText(response.body().getMsg());
-                                Utils.showErrorText(fragmentHomeClientRecycler,fragmentHomeClientTxtViewNoSearchResults,
+                                DialogUtils.showTextDialog(fragmentHomeClientRecycler,fragmentHomeClientTxtViewNoSearchResults,
                                         fragmentHomeClientProgressBar);
 
                             }
@@ -218,7 +219,7 @@ public class HomeClientFragment extends BaseFragment {
 
                         fragmentHomeClientTxtViewNoSearchResults.setText(
                                 baseActivity.getString(R.string.default_response_no_internet_connection));
-                        Utils.showErrorText(fragmentHomeClientRecycler,fragmentHomeClientTxtViewNoSearchResults,
+                        DialogUtils.showTextDialog(fragmentHomeClientRecycler,fragmentHomeClientTxtViewNoSearchResults,
                                 fragmentHomeClientProgressBar);
                     }
                 });

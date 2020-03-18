@@ -57,7 +57,7 @@
                     style="@style/edtTxtAddRstaurantItemCategory"
                     android:gravity="top"
                     android:paddingTop="@dimen/dim_margin_vertical_inside_10"
-                    android:background="@drawable/background_item_restaurant_categories_white_w_shadow"
+                    android:background="@drawable/background_item_restaurant_categories_white_w_shadow_30"
                     android:layout_marginTop="@dimen/dim_margin_vertical_10"
                     android:hint="@string/home_restaurant_add_category_item_fragment_edt_txt_shrt_desc_hint"
 

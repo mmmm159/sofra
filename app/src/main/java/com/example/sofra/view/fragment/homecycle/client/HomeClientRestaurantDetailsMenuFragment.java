@@ -19,6 +19,7 @@ import com.example.sofra.data.api.RetrofitClient;
 import com.example.sofra.data.model.client.category.Category;
 import com.example.sofra.data.model.general.itemrestaurant.ItemRestaurant;
 import com.example.sofra.data.model.general.itemrestaurant.ItemRestaurantData;
+import com.example.sofra.utils.DialogUtils;
 import com.example.sofra.utils.OnEndLess;
 import com.example.sofra.utils.Utils;
 import com.example.sofra.view.fragment.BaseFragment;
@@ -107,7 +108,7 @@ public class HomeClientRestaurantDetailsMenuFragment extends BaseFragment {
                             fragmentHomeClientRestaurantDetailsMenuTxtViewNoInternet.setText(
                                     baseActivity.getString(R.string.default_response_no_data_for_this_category)
                             );
-                            Utils.showErrorText(fragmentHomeClientRestaurantDetailsMenuRecyclerItems
+                            DialogUtils.showTextDialog(fragmentHomeClientRestaurantDetailsMenuRecyclerItems
                                     , fragmentHomeClientRestaurantDetailsMenuTxtViewNoInternet
                                     , fragmentHomeClientRestaurantDetailsMenuProgressBar);
 
@@ -115,7 +116,7 @@ public class HomeClientRestaurantDetailsMenuFragment extends BaseFragment {
                         else {
 
 
-                            Utils.showContainer(fragmentHomeClientRestaurantDetailsMenuRecyclerItems
+                            DialogUtils.showContainerDialog(fragmentHomeClientRestaurantDetailsMenuRecyclerItems
                                     , fragmentHomeClientRestaurantDetailsMenuTxtViewNoInternet
                                     , fragmentHomeClientRestaurantDetailsMenuProgressBar);
 
@@ -128,7 +129,7 @@ public class HomeClientRestaurantDetailsMenuFragment extends BaseFragment {
                     else {
 
                         fragmentHomeClientRestaurantDetailsMenuTxtViewNoInternet.setText(response.body().getMsg());
-                        Utils.showErrorText(fragmentHomeClientRestaurantDetailsMenuRecyclerItems
+                        DialogUtils.showTextDialog(fragmentHomeClientRestaurantDetailsMenuRecyclerItems
                                 , fragmentHomeClientRestaurantDetailsMenuTxtViewNoInternet
                                 , fragmentHomeClientRestaurantDetailsMenuProgressBar);
 
@@ -146,7 +147,7 @@ public class HomeClientRestaurantDetailsMenuFragment extends BaseFragment {
 
                 fragmentHomeClientRestaurantDetailsMenuTxtViewNoInternet.setText(
                         baseActivity.getString(R.string.default_response_no_internet_connection));
-                Utils.showErrorText(fragmentHomeClientRestaurantDetailsMenuRecyclerItems
+                DialogUtils.showTextDialog(fragmentHomeClientRestaurantDetailsMenuRecyclerItems
                         , fragmentHomeClientRestaurantDetailsMenuTxtViewNoInternet
                         , fragmentHomeClientRestaurantDetailsMenuProgressBar);
 
@@ -166,7 +167,7 @@ public class HomeClientRestaurantDetailsMenuFragment extends BaseFragment {
 
                 try {
                     if (response.body().getStatus() == 1) {
-                        Utils.showContainer(fragmentHomeClientRestaurantDetailsMenuRecyclerCategories
+                        DialogUtils.showContainerDialog(fragmentHomeClientRestaurantDetailsMenuRecyclerCategories
                                 , fragmentHomeClientRestaurantDetailsMenuTxtViewNoInternet
                                 , fragmentHomeClientRestaurantDetailsMenuProgressBar);
 
@@ -187,7 +188,7 @@ public class HomeClientRestaurantDetailsMenuFragment extends BaseFragment {
 
                         fragmentHomeClientRestaurantDetailsMenuTxtViewNoInternet.setText(response.body().getMsg());
 
-                        Utils.showErrorText(fragmentHomeClientRestaurantDetailsMenuRecyclerCategories
+                        DialogUtils.showTextDialog(fragmentHomeClientRestaurantDetailsMenuRecyclerCategories
                                 , fragmentHomeClientRestaurantDetailsMenuTxtViewNoInternet
                                 , fragmentHomeClientRestaurantDetailsMenuProgressBar);
 
@@ -205,7 +206,7 @@ public class HomeClientRestaurantDetailsMenuFragment extends BaseFragment {
                 fragmentHomeClientRestaurantDetailsMenuTxtViewNoInternet.setText(
                         baseActivity.getString(R.string.default_response_no_internet_connection));
 
-                Utils.showErrorText(fragmentHomeClientRestaurantDetailsMenuRecyclerCategories
+                DialogUtils.showTextDialog(fragmentHomeClientRestaurantDetailsMenuRecyclerCategories
                         , fragmentHomeClientRestaurantDetailsMenuTxtViewNoInternet
                         , fragmentHomeClientRestaurantDetailsMenuProgressBar);
 

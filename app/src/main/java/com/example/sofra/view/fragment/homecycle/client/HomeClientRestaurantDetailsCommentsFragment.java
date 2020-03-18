@@ -27,6 +27,7 @@ import com.example.sofra.data.api.RetrofitClient;
 import com.example.sofra.data.model.client.review.Review;
 import com.example.sofra.data.model.client.review.ReviewData;
 import com.example.sofra.data.model.client.reviewnopagination.ReviewNoPagination;
+import com.example.sofra.utils.DialogUtils;
 import com.example.sofra.utils.OnEndLess;
 import com.example.sofra.utils.Utils;
 import com.example.sofra.view.fragment.BaseFragment;
@@ -125,13 +126,13 @@ public class HomeClientRestaurantDetailsCommentsFragment extends BaseFragment im
                                     baseActivity.getString(R.string.default_response_no_comments_yet)
                             );
 
-                            Utils.showErrorText(fragmentHomeClientRestaurantDetailsCommentsRecycler,
+                            DialogUtils.showTextDialog(fragmentHomeClientRestaurantDetailsCommentsRecycler,
                                     fragmentHomeClientRestaurantDetailsCommentsTxtViewNetworkError,
                                     fragmentHomeClientRestaurantDetailsCommentsProgressBar);
 
                         }
                         else {
-                            Utils.showContainer(fragmentHomeClientRestaurantDetailsCommentsRecycler,
+                            DialogUtils.showContainerDialog(fragmentHomeClientRestaurantDetailsCommentsRecycler,
                                     fragmentHomeClientRestaurantDetailsCommentsTxtViewNetworkError,
                                     fragmentHomeClientRestaurantDetailsCommentsProgressBar);
                             reviewDataList.addAll(response.body().getData().getData());
@@ -145,7 +146,7 @@ public class HomeClientRestaurantDetailsCommentsFragment extends BaseFragment im
                     } else {
 
                         fragmentHomeClientRestaurantDetailsCommentsTxtViewNetworkError.setText(response.body().getMsg());
-                        Utils.showErrorText(fragmentHomeClientRestaurantDetailsCommentsRecycler,
+                        DialogUtils.showTextDialog(fragmentHomeClientRestaurantDetailsCommentsRecycler,
                                 fragmentHomeClientRestaurantDetailsCommentsTxtViewNetworkError,
                                 fragmentHomeClientRestaurantDetailsCommentsProgressBar);
 
@@ -160,7 +161,7 @@ public class HomeClientRestaurantDetailsCommentsFragment extends BaseFragment im
 
                 fragmentHomeClientRestaurantDetailsCommentsTxtViewNetworkError.setText(
                         baseActivity.getString(R.string.default_response_no_internet_connection));
-                Utils.showErrorText(fragmentHomeClientRestaurantDetailsCommentsRecycler,
+                DialogUtils.showTextDialog(fragmentHomeClientRestaurantDetailsCommentsRecycler,
                         fragmentHomeClientRestaurantDetailsCommentsTxtViewNetworkError,
                         fragmentHomeClientRestaurantDetailsCommentsProgressBar);
             }
@@ -259,11 +260,11 @@ public class HomeClientRestaurantDetailsCommentsFragment extends BaseFragment im
 
                                         String msg = response.body().getMsg();
                                         onResponseSuccessTxtView.setText(msg + response.body().getData().getReview().getRate());
-                                        Utils.showErrorText(constraintMain, onResponseSuccessTxtView, progressBar);
+                                        DialogUtils.showTextDialog(constraintMain, onResponseSuccessTxtView, progressBar);
                                         rate = 0;
 
                                     } else {
-                                        Utils.showContainer(constraintMain, onResponseSuccessTxtView, progressBar);
+                                        DialogUtils.showContainerDialog(constraintMain, onResponseSuccessTxtView, progressBar);
                                         String msg = response.body().getMsg();
                                         onResponseErrorTxtView.setText("!! " + msg + " !!");
                                         onResponseErrorTxtView.setVisibility(View.VISIBLE);
@@ -281,7 +282,7 @@ public class HomeClientRestaurantDetailsCommentsFragment extends BaseFragment im
 
                                 String msg = baseActivity.getString(R.string.default_response_no_internet_connection);
                                 onResponseSuccessTxtView.setText(msg);
-                                Utils.showErrorText(constraintMain, onResponseSuccessTxtView, progressBar);
+                                DialogUtils.showTextDialog(constraintMain, onResponseSuccessTxtView, progressBar);
 
                             }
                         });
